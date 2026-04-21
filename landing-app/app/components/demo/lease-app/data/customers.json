@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Aram Construction LLC",
+    "contact": "+374 99 123456"
+  },
+  {
+    "id": 2,
+    "name": "BuildPro Group",
+    "contact": "+374 77 654321"
+  },
+  {
+    "id": 3,
+    "name": "Nord Engineering CJSC",
+    "contact": "+374 55 987654"
+  }
+]

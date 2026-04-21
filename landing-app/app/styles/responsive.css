@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+
+.container-main {
+  @apply 2xl:w-7xl
+}

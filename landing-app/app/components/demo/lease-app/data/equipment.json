@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Excavator CAT 320",
+    "category": "Heavy Machinery",
+    "daily_rate": 250,
+    "status": "available",
+    "location": "Yerevan",
+    "image": "/demo/excavator.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Concrete Mixer 500L",
+    "category": "Construction",
+    "daily_rate": 40,
+    "status": "leased",
+    "location": "Gyumri",
+    "image": "/demo/mixer.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Scissor Lift 12m",
+    "category": "Lifting",
+    "daily_rate": 120,
+    "status": "maintenance",
+    "location": "Yerevan",
+    "image": "/demo/lift.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Bulldozer Komatsu D65",
+    "category": "Heavy Machinery",
+    "daily_rate": 300,
+    "status": "available",
+    "location": "Vanadzor",
+    "image": "/demo/bulldozer.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Tower Crane 25m",
+    "category": "Lifting",
+    "daily_rate": 500,
+    "status": "available",
+    "location": "Yerevan",
+    "image": "/demo/crane.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Mini Loader Bobcat S450",
+    "category": "Construction",
+    "daily_rate": 90,
+    "status": "leased",
+    "location": "Gyumri",
+    "image": "/demo/loader.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Dump Truck 10T",
+    "category": "Transport",
+    "daily_rate": 180,
+    "status": "available",
+    "location": "Yerevan",
+    "image": "/demo/truck.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Plate Compactor 90kg",
+    "category": "Construction",
+    "daily_rate": 25,
+    "status": "available",
+    "location": "Vanadzor",
+    "image": "/demo/compactor.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Forklift Toyota 3T",
+    "category": "Warehouse",
+    "daily_rate": 110,
+    "status": "maintenance",
+    "location": "Yerevan",
+    "image": "/demo/forklift.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Generator 15kW дизель",
+    "category": "Power",
+    "daily_rate": 70,
+    "status": "available",
+    "location": "Gyumri",
+    "image": "/demo/generator.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Air Compressor 300L",
+    "category": "Power",
+    "daily_rate": 60,
+    "status": "available",
+    "location": "Yerevan",
+    "image": "/demo/compressor.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Mobile Scaffold Set",
+    "category": "Construction",
+    "daily_rate": 35,
+    "status": "available",
+    "location": "Vanadzor",
+    "image": "/demo/scaffold.jpg"
+  }
+]

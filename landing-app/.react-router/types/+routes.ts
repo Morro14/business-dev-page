@@ -14,20 +14,75 @@ type Pages = {
   "/": {
     params: {};
   };
+  "/:lang?": {
+    params: {
+      "lang"?: string;
+    };
+  };
+  "/:lang?/contact": {
+    params: {
+      "lang"?: string;
+    };
+  };
+  "/:lang?/roadmap": {
+    params: {
+      "lang"?: string;
+    };
+  };
+  "/:lang?/examples": {
+    params: {
+      "lang"?: string;
+    };
+  };
+  "/:lang?/demo/lease-app": {
+    params: {
+      "lang"?: string;
+    };
+  };
 };
 
 type RouteFiles = {
   "root.tsx": {
     id: "root";
-    page: "/";
+    page: "/" | "/:lang?" | "/:lang?/contact" | "/:lang?/roadmap" | "/:lang?/examples" | "/:lang?/demo/lease-app";
+  };
+  "routes/Language.tsx": {
+    id: "routes/Language";
+    page: "/:lang?" | "/:lang?/contact" | "/:lang?/roadmap" | "/:lang?/examples" | "/:lang?/demo/lease-app";
+  };
+  "routes/Layout.tsx": {
+    id: "routes/Layout";
+    page: "/:lang?" | "/:lang?/contact" | "/:lang?/roadmap" | "/:lang?/examples" | "/:lang?/demo/lease-app";
   };
   "routes/Index.tsx": {
     id: "routes/Index";
-    page: "/";
+    page: "/:lang?";
+  };
+  "routes/Contact.tsx": {
+    id: "routes/Contact";
+    page: "/:lang?/contact";
+  };
+  "routes/Roadmap.tsx": {
+    id: "routes/Roadmap";
+    page: "/:lang?/roadmap";
+  };
+  "routes/Examples.tsx": {
+    id: "routes/Examples";
+    page: "/:lang?/examples";
+  };
+  "routes/demo/leaseApp/Main.tsx": {
+    id: "routes/demo/leaseApp/Main";
+    page: "/:lang?/demo/lease-app";
   };
 };
 
 type RouteModules = {
   "root": typeof import("./app/root.tsx");
+  "routes/Language": typeof import("./app/routes/Language.tsx");
+  "routes/Layout": typeof import("./app/routes/Layout.tsx");
   "routes/Index": typeof import("./app/routes/Index.tsx");
+  "routes/Contact": typeof import("./app/routes/Contact.tsx");
+  "routes/Roadmap": typeof import("./app/routes/Roadmap.tsx");
+  "routes/Examples": typeof import("./app/routes/Examples.tsx");
+  "routes/demo/leaseApp/Main": typeof import("./app/routes/demo/leaseApp/Main.tsx");
 };

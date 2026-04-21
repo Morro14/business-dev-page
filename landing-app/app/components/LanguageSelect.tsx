@@ -18,7 +18,7 @@ export default function LangSelect() {
     nav(segments.join("/"));
   };
   return (
-    <div className="w-35 flex justify-end">
+    <div className="flex justify-end">
       <select
         name="lang-select"
         onChange={handleChange}
