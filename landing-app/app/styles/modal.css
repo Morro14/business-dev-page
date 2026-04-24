@@ -1,0 +1,4 @@
+@import "tailwindcss";
+
+.modal {
+  @apply fixed w-screen h-screen inset-0 bg-blend-color bg-black-transparent flex justify-center items-center z-50 }

@@ -22,8 +22,8 @@ export function genData() {
     customers.push(serializedItem);
   });
   leaseData.forEach((item) => {
-    const serializedItem = new Lease(item);
+    const serializedItem = new Lease(item, equipment, customers);
     leases.push(serializedItem);
   });
-  console.log(equipment, leases, customers);
+  return { equipment, leases, customers };
 }

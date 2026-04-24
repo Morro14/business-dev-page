@@ -6,7 +6,7 @@
     "daily_rate": 250,
     "status": "available",
     "location": "Yerevan",
-    "image": "/demo/excavator.jpg"
+    "image": "excavator.jpg"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "daily_rate": 40,
     "status": "leased",
     "location": "Gyumri",
-    "image": "/demo/mixer.jpg"
+    "image": "mixer.jpg"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "daily_rate": 120,
     "status": "maintenance",
     "location": "Yerevan",
-    "image": "/demo/lift.jpg"
+    "image": "lift.jpg"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "daily_rate": 300,
     "status": "available",
     "location": "Vanadzor",
-    "image": "/demo/bulldozer.jpg"
+    "image": "bulldozer.jpg"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "daily_rate": 500,
     "status": "available",
     "location": "Yerevan",
-    "image": "/demo/crane.jpg"
+    "image": "crane.jpg"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "daily_rate": 90,
     "status": "leased",
     "location": "Gyumri",
-    "image": "/demo/loader.jpg"
+    "image": "loader.jpg"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "daily_rate": 180,
     "status": "available",
     "location": "Yerevan",
-    "image": "/demo/truck.jpg"
+    "image": "truck.jpg"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "daily_rate": 25,
     "status": "available",
     "location": "Vanadzor",
-    "image": "/demo/compactor.jpg"
+    "image": "compactor.jpg"
   },
   {
     "id": 9,
@@ -78,16 +78,16 @@
     "daily_rate": 110,
     "status": "maintenance",
     "location": "Yerevan",
-    "image": "/demo/forklift.jpg"
+    "image": "forklift.jpg"
   },
   {
     "id": 10,
-    "name": "Generator 15kW дизель",
+    "name": "Generator 15kW disel",
     "category": "Power",
     "daily_rate": 70,
     "status": "available",
     "location": "Gyumri",
-    "image": "/demo/generator.jpg"
+    "image": "generator.jpg"
   },
   {
     "id": 11,
@@ -96,7 +96,7 @@
     "daily_rate": 60,
     "status": "available",
     "location": "Yerevan",
-    "image": "/demo/compressor.jpg"
+    "image": "compressor.jpg"
   },
   {
     "id": 12,
@@ -105,6 +105,6 @@
     "daily_rate": 35,
     "status": "available",
     "location": "Vanadzor",
-    "image": "/demo/scaffold.jpg"
+    "image": "scaffold.jpg"
   }
 ]
