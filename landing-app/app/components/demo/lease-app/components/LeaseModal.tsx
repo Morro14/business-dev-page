@@ -3,25 +3,29 @@ import customers from "../data/customers.json";
 import { useTranslation } from "react-i18next";
 import { useLeasesContext } from "./LeasesContextProvider";
 import { useCustomContext } from "./Context";
+import ErrorBlock from "./ErrorBlock";
+import type { Customer } from "../types";
 
 const BASE_MEDIA_URL = "/app/components/demo/lease-app/data/media/equipment/";
 export function LeaseModal() {
   const leasesContext = useLeasesContext();
   const dataContext = useCustomContext();
   const { isOpen, selectedEquipment, createLease, closeLeaseModal } =
-    leasesContext;
+    leasesContext.leasesState;
   const { t } = useTranslation();
   const [customerId, setCustomerId] = useState<number>();
-  const [startDate, setStartDate] = useState<Date>();
-  const [endDate, setEndDate] = useState<Date>();
+  const [startDate, setStartDate] = useState<string>();
+  const [endDate, setEndDate] = useState<string>();
 
   if (!isOpen || !selectedEquipment) return null;
 
-  const selectedCustomer = customers.find((c) => c.id === customerId);
-
+  const selectedCustomer = customers.find(
+    (c) => c.id === customerId,
+  ) as Customer;
+  const today = new Date();
   return (
     <div className="modal">
-      <div className="bg-white min-w-90 p-8 ">
+      <div className="bg-white min-w-90 min-h-130 p-8 ">
         <img
           className="object-cover h-32 w-full"
           src={`${BASE_MEDIA_URL + selectedEquipment.image}`}
@@ -46,6 +50,7 @@ export function LeaseModal() {
               </label>
               <input
                 type="date"
+                min={today.toISOString().slice(0, 10)}
                 className="text-lg"
                 onChange={(e) => setStartDate(new Date(e.target.value))}
               />
@@ -60,20 +65,40 @@ export function LeaseModal() {
               />
             </div>
             <div className="flex flex-col gap-2 items-start">
+              {leasesContext?.createLeaseError ? (
+                <ErrorBlock
+                  errorMsg={leasesContext?.createLeaseError}
+                ></ErrorBlock>
+              ) : (
+                ""
+              )}
               <button
                 className="text-lg underline bg-accent"
-                onClick={() =>
+                onClick={() => {
+                  if (!selectedCustomer || !startDate || !endDate) {
+                    leasesContext.setCreateLeaseError(
+                      t("All fields must have values."),
+                    );
+                    return;
+                  }
                   createLease({
                     customer: selectedCustomer,
-                    startDate,
-                    endDate,
-                  })
-                }
+                    startDate: startDate,
+                    endDate: endDate,
+                  });
+                }}
               >
                 {t("Confirm lease")}
               </button>
 
-              <button onClick={closeLeaseModal}>Cancel</button>
+              <button
+                onClick={() => {
+                  leasesContext.setCreateLeaseError(null);
+                  closeLeaseModal();
+                }}
+              >
+                Cancel
+              </button>
             </div>
           </div>
         </div>

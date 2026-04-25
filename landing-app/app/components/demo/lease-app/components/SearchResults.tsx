@@ -23,7 +23,7 @@ export default function SearchResults() {
     eqp,
     filterContext?.filters || filterDefault,
   );
-  const { isOpen } = leasesContext;
+  const { isOpen } = leasesContext.leasesState;
   return (
     <div className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(254px,max-content))]">
       {eqpFiltered.map((item, i) => (

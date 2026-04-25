@@ -1,17 +1,34 @@
-import { useContext, createContext } from "react";
+import {
+  useContext,
+  createContext,
+  useState,
+  type SetStateAction,
+} from "react";
 import { useLeases } from "../hooks/useLeases.ts";
 
-const LeasesContext = createContext();
+interface LeaseContext {
+  leasesState: ReturnType<typeof useLeases>;
+  createLeaseError: string | null;
+  setCreateLeaseError: React.Dispatch<SetStateAction<string | null>>;
+}
+const LeasesContext = createContext<LeaseContext | undefined>(undefined);
 
-export function LeasesProvider({ children }) {
+export function LeasesProvider({ children }: { children: React.ReactNode }) {
   const leasesState = useLeases();
+  const [createLeaseError, setCreateLeaseError] = useState<string | null>(null);
   return (
-    <LeasesContext.Provider value={leasesState}>
+    <LeasesContext.Provider
+      value={{ leasesState, createLeaseError, setCreateLeaseError }}
+    >
       {children}
     </LeasesContext.Provider>
   );
 }
 
 export function useLeasesContext() {
-  return useContext(LeasesContext);
+  const context = useContext(LeasesContext);
+  if (!context) {
+    throw new Error("useLeasesContext must be within LeasesProvider");
+  }
+  return context;
 }

@@ -11,7 +11,6 @@ export function useLeases() {
     null,
   );
 
-  // Open modal
   const openLeaseModal = (equipment: Equipment) => {
     setSelectedEquipment(equipment);
     setIsOpen(true);
@@ -22,7 +21,6 @@ export function useLeases() {
     setSelectedEquipment(null);
   };
 
-  // Create lease (mock logic)
   const createLease = ({
     customer,
     startDate,
@@ -54,6 +52,7 @@ export function useLeases() {
     );
 
     dataContext?.updateData(newLease);
+    dataContext?.updateRevenue(newLease.totalPrice);
     // selectedEquipment.status = "leased";
     // dataContext?.updateData(selectedEquipment);
     closeLeaseModal();

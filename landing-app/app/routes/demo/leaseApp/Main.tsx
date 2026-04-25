@@ -8,6 +8,7 @@ import Search from "~/components/demo/lease-app/components/Search";
 import FilterContextProvider from "~/components/demo/lease-app/components/FilterContext";
 import SearchResults from "~/components/demo/lease-app/components/SearchResults";
 import { LeasesProvider } from "~/components/demo/lease-app/components/LeasesContextProvider";
+import RecentLeases from "~/components/demo/lease-app/components/RecentLeases";
 
 export default function Main() {
   const data = genData();
@@ -20,8 +21,11 @@ export default function Main() {
           <Overview></Overview>
           <FilterContextProvider>
             <LeasesProvider>
-              <Search></Search>
-              <SearchResults></SearchResults>
+              <div className="space-y-8">
+                <Search></Search>
+                <SearchResults></SearchResults>
+              </div>
+              <RecentLeases></RecentLeases>
             </LeasesProvider>
           </FilterContextProvider>
         </ContextProvider>

@@ -1,23 +1,32 @@
-import type { Equipment } from "../types";
-import eqpImage from "../data/media/equipment/bulldozer.jpg";
+import type { Equipment, Lease } from "../types";
 import { useTranslation } from "react-i18next";
-import { useLeases } from "../hooks/useLeases";
-import { LeaseModal } from "./LeaseModal";
 import { useLeasesContext } from "./LeasesContextProvider";
+import { useCustomContext } from "./Context";
 
 const BASE_MEDIA_URL = "/app/components/demo/lease-app/data/media/equipment/";
 
 export default function EqpCard({ eqp }: { eqp: Equipment }) {
   const { t } = useTranslation();
   const leasesContext = useLeasesContext();
-  const { openLeaseModal } = leasesContext;
+  const { openLeaseModal } = leasesContext.leasesState;
   const statusColors = {
     available: "bg-[#65FF93]",
     leased: "bg-[#CC9FFF]",
     maintenance: "bg-accent",
   };
+  const dataCotnext = useCustomContext();
+  const lease = dataCotnext?.data?.leases.find(
+    (item) => item.equipment.id === eqp.id,
+  ) as Lease;
+  const formatDate = (date: Date) => {
+    const fmt = new Intl.DateTimeFormat("en", {
+      month: "short",
+      day: "numeric",
+    });
+    return fmt.format(date);
+  };
   return (
-    <div className="size-64 border border-gray-500">
+    <div className="w-64 min-h-64 border border-gray-500">
       <img
         className="object-cover h-32 w-full"
         src={`${BASE_MEDIA_URL + eqp.image}`}
@@ -31,13 +40,19 @@ export default function EqpCard({ eqp }: { eqp: Equipment }) {
             {/* <span className={`${statusColors[eqp.status]}`}>■</span> */}
           </span>
         </p>
-        {eqp.status === "available" && (
+        {eqp.status === "available" ? (
           <button
             className="px-1 mt-2 text-lg underline"
             onClick={() => openLeaseModal(eqp)}
           >
             {t("lease")}
           </button>
+        ) : eqp.status === "leased" ? (
+          <p className="mt-2">
+            {t("Until")}: {formatDate(lease.endDate)}
+          </p>
+        ) : (
+          ""
         )}
       </div>
     </div>

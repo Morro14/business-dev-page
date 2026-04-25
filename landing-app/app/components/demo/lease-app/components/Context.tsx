@@ -12,6 +12,7 @@ interface CustomContext {
   totalRevenue: number;
   setTotalRevenue: React.Dispatch<SetStateAction<number>>;
   updateData: (update: Equipment | Lease) => void;
+  updateRevenue: (update: number) => void;
   // equipment: Equipment[];
   // setEquipment: React.Dispatch<SetStateAction<Equipment[]>>;
 }
@@ -84,6 +85,9 @@ export default function ContextProvider({
         break;
     }
   };
+  const updateRevenue = (update: number) => {
+    setTotalRevenue(totalRevenue + update);
+  };
   return (
     <Context
       value={{
@@ -92,6 +96,7 @@ export default function ContextProvider({
         totalRevenue,
         setTotalRevenue,
         updateData,
+        updateRevenue,
         // equipment,
         // setEquipment,
       }}

@@ -45,8 +45,8 @@ const typedData = {
 
 export class Lease {
   id: number;
-  equipment: Equipment | undefined;
-  customer: Customer | undefined;
+  equipment: Equipment;
+  customer: Customer;
   startDate: Date;
   endDate: Date;
   status: LeaseStatus | string;
@@ -54,24 +54,16 @@ export class Lease {
 
   constructor(data: LeaseData, equipment: Equipment[], customers: Customer[]) {
     this.id = data.id;
-    this.equipment = equipment.find((item) => item.id === data.equipment_id);
-    this.customer = customers.find((item) => item.id === data.customer_id);
+    this.equipment = equipment.find(
+      (item) => item.id === data.equipment_id,
+    ) as Equipment;
+    this.customer = customers.find(
+      (item) => item.id === data.customer_id,
+    ) as Customer;
     this.startDate = new Date(data.start_date);
     this.endDate = new Date(data.end_date);
     this.status = data.status;
     this.totalPrice = data.total_price;
-  }
-
-  getTotalPrice() {
-    const days =
-      Math.abs(
-        this.endDate.getMilliseconds() - this.startDate.getMilliseconds(),
-      ) /
-      (1000 * 60 * 60 * 24);
-    if (this.equipment?.dailyRate) {
-      return days * this.equipment?.dailyRate;
-    }
-    return 0;
   }
 }
 export class Equipment {

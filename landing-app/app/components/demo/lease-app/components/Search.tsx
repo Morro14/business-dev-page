@@ -22,14 +22,12 @@ export default function Search() {
     const formDataObj = Object.fromEntries(formData) as unknown as Filters;
     filterContext?.setFilters(formDataObj);
   };
-  console.log("leases", dataContext?.data?.leases);
-  console.log("eqp", dataContext?.data?.equipment);
   return (
     <div className="space-y-4">
       <h2>{t("Search equipment")}</h2>
       <Form
         method="get"
-        className="space-x-8 pt-2 text-xl font-medium"
+        className="md:space-x-8 space-y-4 pt-2 text-xl font-medium md:w-auto w-full "
         onChange={handleFormChange}
         onSubmit={(e) => e.preventDefault()}
       >
@@ -37,7 +35,7 @@ export default function Search() {
           name="search"
           id="search-eqp"
           list="eqp-names"
-          className="border border-gray-500 p-1 text-base placeholder:text-gray-600 focus:placeholder:text-gray-300"
+          className="border border-gray-500 px-1 h-8 text-base placeholder:text-gray-600 focus:placeholder:text-gray-300 md:w-auto w-full"
           placeholder={t("Search equipment...")}
         ></input>
         <datalist id="eqp-names">
@@ -48,7 +46,7 @@ export default function Search() {
         <select
           name="category"
           id="category-eqp"
-          className="border border-gray-500 p-1 text-base"
+          className="border border-gray-500 p-1 text-base h-8 md:w-auto w-full"
         >
           <option value="" className="text-gray-600">
             {t("Category...")}
@@ -65,7 +63,7 @@ export default function Search() {
         <select
           name="status"
           id="status-eqp"
-          className="border border-gray-500 p-1 text-base"
+          className="border border-gray-500 p-1 text-base h-8 md:w-auto w-full"
         >
           <option value="" className="text-gray-600">
             {t("Status...")}
@@ -81,7 +79,7 @@ export default function Search() {
         <select
           name="location"
           id="location-eqp"
-          className="border border-gray-500 p-1 text-base"
+          className="border border-gray-500 p-1 text-base h-8 md:w-auto w-full"
         >
           <option value="" className="text-gray-600">
             {t("Location...")}
