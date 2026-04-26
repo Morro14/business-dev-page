@@ -8,6 +8,7 @@ import {
 } from "../utils/getData";
 import { useFilterContext } from "./FilterContext";
 import type { Filters } from "../types";
+import { useRef, type RefObject } from "react";
 
 export default function Search() {
   const { t } = useTranslation();
@@ -22,6 +23,7 @@ export default function Search() {
     const formDataObj = Object.fromEntries(formData) as unknown as Filters;
     filterContext?.setFilters(formDataObj);
   };
+  const formRef = useRef<HTMLFormElement>(null);
   return (
     <div className="space-y-4">
       <h2>{t("Search equipment")}</h2>
@@ -30,6 +32,7 @@ export default function Search() {
         className="md:space-x-8 space-y-4 pt-2 text-xl font-medium md:w-auto w-full "
         onChange={handleFormChange}
         onSubmit={(e) => e.preventDefault()}
+        ref={formRef}
       >
         <input
           name="search"
@@ -95,7 +98,12 @@ export default function Search() {
         <button
           id="reset-form"
           className="text-base underline"
-          onClick={() => filterContext?.resetFilters()}
+          onClick={() => {
+            filterContext?.resetFilters();
+            if (formRef) {
+              formRef.current?.reset();
+            }
+          }}
         >
           {t("reset filter")}
         </button>
