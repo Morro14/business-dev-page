@@ -14,22 +14,20 @@ export default function Main() {
   const data = genData();
   const { t } = useTranslation();
   return (
-    <div className="text-text-main grow">
-      <main className="md:w-7xl max-w-7xl mx-auto px-6 pb-24 pt-10 space-y-16">
-        <h1>{t("Demo dashboard for equipment leasing service")}</h1>
-        <ContextProvider params={{ dataInit: data }}>
-          <Overview></Overview>
-          <FilterContextProvider>
-            <LeasesProvider>
-              <div className="space-y-8">
-                <Search></Search>
-                <SearchResults></SearchResults>
-              </div>
-              <RecentLeases></RecentLeases>
-            </LeasesProvider>
-          </FilterContextProvider>
-        </ContextProvider>
-      </main>
+    <div className="space-y-16">
+      <h1>{t("Demo dashboard for equipment leasing service")}</h1>
+      <ContextProvider params={{ dataInit: data }}>
+        <Overview></Overview>
+        <FilterContextProvider>
+          <LeasesProvider>
+            <div className="space-y-8">
+              <Search></Search>
+              <SearchResults></SearchResults>
+            </div>
+            <RecentLeases></RecentLeases>
+          </LeasesProvider>
+        </FilterContextProvider>
+      </ContextProvider>
     </div>
   );
 }

@@ -4,45 +4,45 @@ import QuickNav from "~/components/QuickNav";
 export default function Roadmap() {
   const { t } = useTranslation();
   return (
-    <div className="bg-white text-text-main grow">
-      <main className="max-w-7xl mx-auto px-6 pb-24 pt-10 space-y-16">
-        <QuickNav
-          links={[
-            { label: "main", path: "/" },
-            { label: "contact", path: "/contact" },
-          ]}
-        ></QuickNav>
-        {/* ROADMAP */}
-        <div className="space-y-10">
-          <h1>{t("Roadmap example")}</h1>
-          <p className="italic text-text-lighter">
-            {t(
-              "A general example of development process. Specifics will vary depending on your project’s goals.",
-            )}
-          </p>
+    <div className="space-y-16">
+      <QuickNav
+        links={[
+          { label: t("main"), path: "/" },
+          { label: t("contact"), path: "/contact" },
+        ]}
+      ></QuickNav>
+      {/* ROADMAP */}
+      <div className="space-y-10">
+        <h1>{t("Roadmap example")}</h1>
+        <p className="italic text-text-lighter">
+          {t(
+            "A general example of development process. Specifics will vary depending on your project’s goals.",
+          )}
+        </p>
 
-          <div className="flex flex-col gap-8">
-            {/* FRAMING THE PROBLEM */}
-            <section className="space-y-4">
-              <h2>{t("1. Framing the problem")}</h2>
-              <ol className="list-decimal pl-6 space-y-1">
-                <li>
-                  {t(
-                    "Understanding of your current workflow - how the work is done currently.",
-                  )}
-                </li>
-                <li>
-                  {t(
-                    "Defining goals (e.g. time saved, error reduced, visibility enhanced).",
-                  )}
-                </li>
-                <li>{t("Proposed solutions.")}</li>
-              </ol>
-            </section>
+        <div className="flex flex-col gap-8">
+          {/* FRAMING THE PROBLEM */}
+          <section className="space-y-6">
+            <h2>{t("1. Framing the problem")}</h2>
+            <ol className="list-decimal pl-6 space-y-1">
+              <li>
+                {t(
+                  "Understanding of your current workflow - how the work is done currently.",
+                )}
+              </li>
+              <li>
+                {t(
+                  "Defining goals (e.g. time saved, error reduced, visibility enhanced).",
+                )}
+              </li>
+              <li>{t("Proposed solutions.")}</li>
+            </ol>
+          </section>
 
-            {/* SCOPE */}
-            <section className="space-y-4">
-              <h2>{t("2. Scope")}</h2>
+          {/* SCOPE */}
+          <section className="space-y-6">
+            <h2>{t("2. Scope")}</h2>
+            <div className="space-y-3">
               <p className="text-text-lighter">
                 {t("Defining core features. For example:")}
               </p>
@@ -54,12 +54,14 @@ export default function Roadmap() {
                 <li>{t("Basic filters")}</li>
                 <li>{t("Clean, minimal UI")}</li>
               </ul>
-            </section>
+            </div>
+          </section>
 
-            {/* DEVELOPMENT */}
-            <section className="space-y-4">
-              <h2>{t("3. Development Process and milestones")}</h2>
-              <ol className="list-decimal pl-6 space-y-4">
+          {/* DEVELOPMENT */}
+          <section className="space-y-6">
+            <h2>{t("3. Development Process and milestones")}</h2>
+            <div className="space-y-3">
+              <ol className="list-decimal pl-6 space-y-3">
                 <li>{t("Discovery and Planning.")}</li>
                 <ul className="list-disc pl-6 space-y-1 text-text-lighter">
                   <li>{t("Finalize requirements")}</li>
@@ -73,9 +75,7 @@ export default function Roadmap() {
                     {t("Building a scheme (structural layout, functions)")}
                   </li>
                   <p className="text-text-lighter">
-                    <Trans
-                      i18nKey={"Outcome: Approved layout before development"}
-                    >
+                    <Trans i18nKey={"road-map-outcome"}>
                       <b>Outcome:</b> Approved layout before development
                     </Trans>
                   </p>
@@ -97,11 +97,13 @@ export default function Roadmap() {
                 <li>{t("Deployment stage, testing.")}</li>
                 <li>{t("Production-ready.")}</li>
               </ol>
-            </section>
+            </div>
+          </section>
 
-            {/* MILESTONES */}
-            <section className="space-y-4">
-              <h2>{t("Milestones")}</h2>
+          {/* MILESTONES */}
+          <section className="space-y-6">
+            <h2>{t("Milestones")}</h2>
+            <div className="space-y-3">
               <p className="text-text-lighter">
                 {t("Example of development milestones:")}
               </p>
@@ -119,11 +121,13 @@ export default function Roadmap() {
                 <li>{t("Simple internal tool: 4–6 weeks")}</li>
                 <li>{t("More complex system: 8–12+ weeks")}</li>
               </ul>
-            </section>
+            </div>
+          </section>
 
-            {/* COLLABORATION */}
-            <section className="space-y-4">
-              <h2>{t("Collaboration")}</h2>
+          {/* COLLABORATION */}
+          <section className="space-y-6">
+            <h2>{t("Collaboration")}</h2>
+            <div className="space-y-3">
               <p className="text-text-lighter">
                 {t("What I will need from you:")}
               </p>
@@ -132,27 +136,27 @@ export default function Roadmap() {
                 <li>{t("Access to necessary tools/data")}</li>
                 <li>{t("Clarification of your business rules")}</li>
               </ul>
-            </section>
+            </div>
+          </section>
 
-            {/* POST_LAUNCH */}
-            <section className="space-y-4">
-              <h2>{t("Post-Launch")}</h2>
-              <ul className="list-disc pl-6 space-y-1 text-text-lighter">
-                <li>{t("Bug fixes (initial period)")}</li>
-                <li>{t("Performance improvements")}</li>
-                <li>{t("Feature extensions")}</li>
-                <li>{t("Ongoing support (optional)")}</li>
-              </ul>
-            </section>
-          </div>
+          {/* POST_LAUNCH */}
+          <section className="space-y-6">
+            <h2>{t("Post-Launch")}</h2>
+            <ul className="list-disc pl-6 space-y-1 text-text-lighter">
+              <li>{t("Bug fixes (initial period)")}</li>
+              <li>{t("Performance improvements")}</li>
+              <li>{t("Feature extensions")}</li>
+              <li>{t("Ongoing support (optional)")}</li>
+            </ul>
+          </section>
         </div>
-        <QuickNav
-          links={[
-            { label: "main", path: "/" },
-            { label: "contact", path: "/contact" },
-          ]}
-        ></QuickNav>
-      </main>
+      </div>
+      <QuickNav
+        links={[
+          { label: "main", path: "/" },
+          { label: "contact", path: "/contact" },
+        ]}
+      ></QuickNav>
     </div>
   );
 }

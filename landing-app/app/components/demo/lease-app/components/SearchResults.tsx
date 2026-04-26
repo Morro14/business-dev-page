@@ -26,9 +26,15 @@ export default function SearchResults() {
   const { isOpen } = leasesContext.leasesState;
   return (
     <div className="grid gap-4 grid-cols-[repeat(auto-fill,minmax(254px,max-content))]">
-      {eqpFiltered.map((item, i) => (
-        <EqpCard key={`eqp-card-${i}`} eqp={item}></EqpCard>
-      ))}
+      {eqpFiltered.length === 0 ? (
+        <span className="text-lg font-semibold">
+          {t("No equipment found with given parameters.")}
+        </span>
+      ) : (
+        eqpFiltered.map((item, i) => (
+          <EqpCard key={`eqp-card-${i}`} eqp={item}></EqpCard>
+        ))
+      )}
 
       {isOpen ? <LeaseModal></LeaseModal> : ""}
     </div>

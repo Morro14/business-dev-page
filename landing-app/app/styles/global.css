@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 @import "tailwindcss";
 @import "./responsive.css";
 @import "./modal.css";
@@ -10,19 +11,22 @@
   --color-accent: #FFFB00;
   --color-accent-green: #65FF93;
   --color-black-transparent: #000000bf;
-  --font-sans: "DM Sans";
+  --font-sans: "DM Sans", "Source Sans 3";
   --font-mono: "DM Mono"
 }
 
 h1 {
-  @apply text-4xl font-semibold
+  @apply md:text-5xl text-4xl font-semibold
 }
 h2 {
-  @apply text-2xl font-medium
+  @apply md:text-3xl text-2xl font-medium
 }
 h3 {
-  @apply font-semibold
+  @apply text-lg font-semibold
+}
+h4 {
+  @apply text-xl font-semibold
 }
 button {
-  @apply cursor-pointer 
+  @apply cursor-pointer  
 }

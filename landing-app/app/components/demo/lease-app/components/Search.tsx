@@ -57,7 +57,7 @@ export default function Search() {
           {eqpCats.map((item, i) => {
             return (
               <option value={item} key={`category-eqp-${i}`}>
-                {item}
+                {t(item)}
               </option>
             );
           })}
@@ -74,7 +74,7 @@ export default function Search() {
           {eqpStatuses.map((item, i) => {
             return (
               <option value={item} key={`status-eqp-${i}`}>
-                {item}
+                {t(item)}
               </option>
             );
           })}

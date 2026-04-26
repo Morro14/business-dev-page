@@ -6,7 +6,7 @@ import { useCustomContext } from "./Context";
 const BASE_MEDIA_URL = "/app/components/demo/lease-app/data/media/equipment/";
 
 export default function EqpCard({ eqp }: { eqp: Equipment }) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation(["translation", "demo-lease-app"]);
   const leasesContext = useLeasesContext();
   const { openLeaseModal } = leasesContext.leasesState;
   const statusColors = {
@@ -25,6 +25,7 @@ export default function EqpCard({ eqp }: { eqp: Equipment }) {
     });
     return fmt.format(date);
   };
+  console.log(i18n.services.resourceStore.data);
   return (
     <div className="w-64 min-h-64 border border-gray-500">
       <img
@@ -33,10 +34,12 @@ export default function EqpCard({ eqp }: { eqp: Equipment }) {
       />
       <div className={`p-2`}>
         <h3>{eqp.name}</h3>
-        <p>{`${t("Daily rate")}: ${eqp.dailyRate}`}</p>
+        <p className="text-base">{`${t("Daily rate")}: ${eqp.dailyRate}`}</p>
         <p>
-          <span className={`capitalize px-1 ${statusColors[eqp.status]}`}>
-            {`${eqp.status} `}
+          <span
+            className={`capitalize text-base px-1 ${statusColors[eqp.status]}`}
+          >
+            {`${t(eqp.status, { ns: "demo-lease-app" })}`}
             {/* <span className={`${statusColors[eqp.status]}`}>■</span> */}
           </span>
         </p>
@@ -48,7 +51,7 @@ export default function EqpCard({ eqp }: { eqp: Equipment }) {
             {t("lease")}
           </button>
         ) : eqp.status === "leased" ? (
-          <p className="mt-2">
+          <p className="mt-2 text-base">
             {t("Until")}: {formatDate(lease.endDate)}
           </p>
         ) : (

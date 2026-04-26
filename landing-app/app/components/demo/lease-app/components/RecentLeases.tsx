@@ -14,7 +14,7 @@ export default function RecentLeases() {
   };
   return (
     <div className="space-y-4 w-full">
-      <h2>{"Recent leases"}</h2>
+      <h2>{t("Recent leases")}</h2>
       <p className="md:hidden">{t("scroll >")}</p>
       <div className="w-full overflow-x-scroll">
         <table className="min-w-180">
