@@ -1,6 +1,3 @@
-import eqData from "./data/equipment.json";
-import customersData from "./data/customers.json";
-
 export type EquipmentCategory =
   | "Heavy Machinery"
   | "Construction"
@@ -10,6 +7,7 @@ export type EquipmentCategory =
   | "Power";
 export type EquiupmentStatus = "available" | "leased" | "maintenance";
 type LeaseStatus = "active" | "completed";
+type MaintenanceStatus = "active" | "completed";
 
 export interface EquipmentData {
   id: number;
@@ -32,16 +30,20 @@ export interface LeaseData {
   status: string;
   total_price: number;
 }
+export type MaintenanceData = {
+  id: number;
+  equipment_name: string;
+  equipment_id: number;
+  start_date: string;
+  end_date: string;
+  status: string;
+};
+
 export interface CustomerData {
   id: number;
   name: string;
   contact: string;
 }
-
-const typedData = {
-  eqData: eqData as EquipmentData[],
-  customersData: customersData as CustomerData[],
-};
 
 export class Lease {
   id: number;
@@ -64,6 +66,23 @@ export class Lease {
     this.endDate = new Date(data.end_date);
     this.status = data.status;
     this.totalPrice = data.total_price;
+  }
+}
+export class Maintenance {
+  id: number;
+  equipment: Equipment;
+  startDate: Date;
+  endDate: Date;
+  status: MaintenanceStatus | string;
+
+  constructor(data: MaintenanceData, equipment: Equipment[]) {
+    this.id = data.id;
+    this.equipment = equipment.find(
+      (item) => item.id === data.equipment_id,
+    ) as Equipment;
+    this.startDate = new Date(data.start_date);
+    this.endDate = new Date(data.end_date);
+    this.status = data.status;
   }
 }
 export class Equipment {
@@ -99,6 +118,7 @@ export type Data = {
   customers: Customer[];
   equipment: Equipment[];
   leases: Lease[];
+  mts: Maintenance[];
 };
 
 export interface Filters {

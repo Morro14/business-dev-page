@@ -6,7 +6,7 @@ import { useCustomContext } from "./Context";
 const BASE_MEDIA_URL = "/app/components/demo/lease-app/data/media/equipment/";
 
 export default function EqpCard({ eqp }: { eqp: Equipment }) {
-  const { t, i18n } = useTranslation(["translation", "demo-lease-app"]);
+  const { t, i18n } = useTranslation(["demo-lease-app"]);
   const leasesContext = useLeasesContext();
   const { openLeaseModal } = leasesContext.leasesState;
   const statusColors = {
@@ -25,7 +25,6 @@ export default function EqpCard({ eqp }: { eqp: Equipment }) {
     });
     return fmt.format(date);
   };
-  console.log(i18n.services.resourceStore.data);
   return (
     <div className="w-64 min-h-64 border border-gray-500">
       <img

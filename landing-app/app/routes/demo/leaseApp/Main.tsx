@@ -1,14 +1,13 @@
 import { genData } from "~/components/demo/lease-app/init";
 import Overview from "~/components/demo/lease-app/components/Overview";
-import ContextProvider, {
-  useCustomContext,
-} from "~/components/demo/lease-app/components/Context";
+import ContextProvider from "~/components/demo/lease-app/components/Context";
 import { useTranslation } from "react-i18next";
 import Search from "~/components/demo/lease-app/components/Search";
 import FilterContextProvider from "~/components/demo/lease-app/components/FilterContext";
 import SearchResults from "~/components/demo/lease-app/components/SearchResults";
 import { LeasesProvider } from "~/components/demo/lease-app/components/LeasesContextProvider";
 import RecentLeases from "~/components/demo/lease-app/components/RecentLeases";
+import RecentMt from "~/components/demo/lease-app/components/RecentMt";
 
 export default function Main() {
   const data = genData();
@@ -25,6 +24,7 @@ export default function Main() {
               <SearchResults></SearchResults>
             </div>
             <RecentLeases></RecentLeases>
+            <RecentMt></RecentMt>
           </LeasesProvider>
         </FilterContextProvider>
       </ContextProvider>

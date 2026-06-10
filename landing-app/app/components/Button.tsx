@@ -7,11 +7,11 @@ export default function Button() {
     <div className="relative px-1 w-fit">
       <Link
         to={`/${i18n.language}/contact`}
-        className="relative z-40 underline text-xl"
+        className="relative z-40 underline text-xl bg-[url(./src/assets/line-accent.png)] "
       >
         {t("Get a free consultation")}
       </Link>
-      <div className="absolute -top-1.5 -left-1 -skew-y-2  bg-accent w-[104%] h-10 hover:opacity-80 hover:cursor-pointer transition"></div>
+      {/* <div className="absolute -top-1.5 -left-1 -skew-y-2  bg-accent w-[104%] h-10 hover:opacity-80 hover:cursor-pointer transition"></div> */}
     </div>
   );
 }

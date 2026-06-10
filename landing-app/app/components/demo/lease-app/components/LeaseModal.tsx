@@ -12,7 +12,7 @@ export function LeaseModal() {
   const dataContext = useCustomContext();
   const { isOpen, selectedEquipment, createLease, closeLeaseModal } =
     leasesContext.leasesState;
-  const { t } = useTranslation();
+  const { t } = useTranslation(["demo-lease-app"]);
   const [customerId, setCustomerId] = useState<number>();
   const [startDate, setStartDate] = useState<string>();
   const [endDate, setEndDate] = useState<string>();

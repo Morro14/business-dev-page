@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import mockLeases from "../data/leases.json";
 import { Customer, Lease, type Equipment } from "../types";
 import { useCustomContext } from "../components/Context";
 
 export function useLeases() {
-  const [leases, setLeases] = useState(mockLeases);
+  const [leases] = useState(mockLeases);
   const dataContext = useCustomContext();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedEquipment, setSelectedEquipment] = useState<Equipment | null>(
@@ -31,10 +31,10 @@ export function useLeases() {
     endDate: string;
   }) => {
     if (!selectedEquipment) return;
-
-    const days = Math.floor(
-      (new Date(endDate) - new Date(startDate)) / (1000 * 60 * 60 * 24),
-    );
+    const startDateObj = new Date(startDate);
+    const endDateObj = new Date(endDate);
+    const delta = endDateObj.getMilliseconds() - startDateObj.getMilliseconds();
+    const days = Math.floor(delta / (1000 * 60 * 60 * 24));
     const newLease = new Lease(
       {
         id: Date.now(),
@@ -47,8 +47,8 @@ export function useLeases() {
         status: "active",
         total_price: days * selectedEquipment.dailyRate,
       },
-      dataContext?.data?.equipment,
-      dataContext?.data?.customers,
+      dataContext?.data?.equipment || [],
+      dataContext?.data?.customers || [],
     );
 
     dataContext?.updateData(newLease);

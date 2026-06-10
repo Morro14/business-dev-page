@@ -1,5 +1,4 @@
 import type { Equipment, Filters } from "../types";
-
 const normalize = (str: string) => str.toLowerCase().trim();
 
 const matchesSearch = (itemName: string, search: string) => {
@@ -7,25 +6,26 @@ const matchesSearch = (itemName: string, search: string) => {
 
   return normalize(itemName).includes(s);
 };
-
 export function filterEquipment(eqp: Equipment[], filters: Filters) {
+  console.log("filters", filters);
   const defaultValue = "";
   const eval_ = (key: keyof Filters, eqpValue: string, filterValue: string) => {
-    if (key === "search") {
-      return (
-        !matchesSearch(eqpValue, filterValue) && filterValue !== defaultValue
-      );
+    if (filterValue === defaultValue) {
+      return true;
     }
-    return eqpValue !== filterValue && filterValue !== defaultValue;
+    if (key === "search") {
+      return matchesSearch(eqpValue, filterValue);
+    }
+    return eqpValue === filterValue;
   };
   const eqpData = eqp.map((item) => {
     return { ...item, search: item.name };
   });
-  const filteredEqpData = eqpData.filter((item) => {
-    const negative = Object.keys(filters).find((key) =>
-      eval_(key, item[key], filters[key]),
-    );
-    return !negative;
+  const filteredEqpData = eqpData.filter((item: Equipment) => {
+    const saticfy = Object.entries(filters).every((entry) => {
+      return eval_(entry[0], item[entry[0]], entry[1]);
+    });
+    return saticfy;
   });
   return filteredEqpData;
 }

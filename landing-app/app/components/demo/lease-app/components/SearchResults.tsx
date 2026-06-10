@@ -8,7 +8,7 @@ import { LeaseModal } from "./LeaseModal";
 import { useLeasesContext } from "./LeasesContextProvider";
 
 export default function SearchResults() {
-  const { t } = useTranslation();
+  const { t } = useTranslation(["demo-lease-app"]);
   const filterContext = useFilterContext();
   const dataContext = useCustomContext();
   const leasesContext = useLeasesContext();

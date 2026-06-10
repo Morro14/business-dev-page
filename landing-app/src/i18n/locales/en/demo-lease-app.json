@@ -1,5 +1,31 @@
 {
-  "available": "Available",
+  "All fields must have values.": "All fields must have values.",
+  "Available": "Available",
+  "Category...": "Category...",
+  "Confirm lease": "Confirm lease",
+  "Customer": "Customer",
+  "Daily rate": "Daily rate",
+  "Dates": "Dates",
+  "End date:": "End date:",
+  "Equipment": "Equipment",
+  "lease": "lease",
   "Leased": "Leased",
-  "maintenance": "Maintenance"
+  "Location...": "Location...",
+  "Maintenance": "Maintenance",
+  "No equipment found with given parameters.": "No equipment found with given parameters.",
+  "Overview": "Overview",
+  "Recent leases": "Recent leases",
+  "Recent maintenance": "Recent maintenance",
+  "reset filter": "reset filter",
+  "Revenue": "Revenue",
+  "scroll >": "scroll >",
+  "Search equipment": "Search equipment",
+  "Search equipment...": "Search equipment...",
+  "Select customer": "Select customer",
+  "Start date:": "Start date:",
+  "Status": "Status",
+  "Status...": "Status...",
+  "Total": "Total",
+  "Until": "Until"
 }
+

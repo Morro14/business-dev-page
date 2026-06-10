@@ -27,7 +27,7 @@ i18n
     fallbackLng: "en",
     supportedLngs: ["en", "ru"],
     // debug: import.meta.env.VITE_DEBUG === "true",
-    debug: true,
+    debug: false,
 
     detection: {
       order: ["path", "navigator"],

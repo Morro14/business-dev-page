@@ -15,6 +15,16 @@
   --font-mono: "DM Mono"
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+.dark {
+  --color-text-main: #fff;
+  --color-text-lighter: #fff;
+  --color-accent: #FFFB00;
+  --color-accent-green: #65FF93;
+  --color-black-transparent: #000000bf;
+}
+
+
 h1 {
   @apply md:text-5xl text-4xl font-semibold
 }

@@ -5,17 +5,14 @@ import "~/utils/i18n.ts";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={``}>
       <head>
         <meta charSet="utf-8" />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, minimum-scale=1"
         />
-        <meta
-          name="description"
-          content="A business page of a web-developer"
-        />
+        <meta name="description" content="A business page of a web-developer" />
 
         <Links />
         <title>i.fomin-dev</title>

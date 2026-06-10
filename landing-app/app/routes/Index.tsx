@@ -6,7 +6,7 @@ import { Link } from "react-router";
 export default function Index() {
   const { t, i18n } = useTranslation();
   return (
-    <div className="space-y-16">
+    <div className="space-y-16 text-text-main">
       {/* HERO */}
       <section className="space-y-12">
         <h1 className="text-4xl font-semibold">
@@ -55,7 +55,7 @@ export default function Index() {
                   const servicesSection = document.getElementById(
                     "section-what-i-build",
                   );
-                  servicesSection?.scrollIntoView();
+                  servicesSection?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 services
@@ -208,26 +208,30 @@ export default function Index() {
       {/* SERVICES */}
       <section className="space-y-6" id="section-services">
         <h2 className="text-2xl font-semibold">{t("Services")}</h2>
-
+        <p className="text-sm text-gray-600">
+          {t(
+            "The price for a specific project will be determined based on its features and scope.",
+          )}
+        </p>
         <div className="space-y-6">
-          <div className="space-y-2">
+          <div className="">
             <h3 className="font-medium">{t("Operations Dashboard")}</h3>
-            <p className="text-text-lighter">{t("2–4 weeks · from €2,000")}</p>
+            <p className="text-text-lighter">{t("2–4 weeks · from €1,500")}</p>
           </div>
 
-          <div className="space-y-2">
+          <div className="">
             <h3 className="font-medium">{t("Workflow Automation System")}</h3>
-            <p className="text-text-lighter">{t("4–12 weeks · from €5,000")}</p>
+            <p className="text-text-lighter">{t("4–12 weeks · from €3,000")}</p>
           </div>
 
-          <div className="space-y-2">
+          <div className="">
             <h3 className="font-medium">{t("Client Portal")}</h3>
-            <p className="text-text-lighter">{t("3–6 weeks · from €4,000")}</p>
+            <p className="text-text-lighter">{t("3–6 weeks · from €2,000")}</p>
           </div>
 
-          <div className="space-y-2">
+          <div className="">
             <h3 className="font-medium">{t("MVP Development")}</h3>
-            <p className="text-text-lighter">{t("3–6 weeks · from €5,000")}</p>
+            <p className="text-text-lighter">{t("3–6 weeks · from €2,000")}</p>
           </div>
         </div>
       </section>
@@ -240,35 +244,35 @@ export default function Index() {
             {t("How the process of building your application looks like:")}
           </p>
           <div className="space-y-4">
-            <div className="space-y-2">
+            <div className="">
               <h3 className="font-medium">{t("1. Discovery")}</h3>
               <p className="text-text-lighter">
                 {t("We define your workflow, requirements, and scope.")}
               </p>
             </div>
 
-            <div className="space-y-2">
+            <div className="">
               <h3 className="font-medium">{t("1. Planning")}</h3>
               <p className="text-text-lighter">
                 {t("Clear structure, features, and timeline.")}
               </p>
             </div>
 
-            <div className="space-y-2">
+            <div className="">
               <h3 className="font-medium">{t("1. Development")}</h3>
               <p className="text-text-lighter">
                 {t("Iterative progress with regular updates.")}
               </p>
             </div>
 
-            <div className="space-y-2">
+            <div className="">
               <h3 className="font-medium">{t("1. Delivery")}</h3>
               <p className="text-text-lighter">
                 {t("Deployed and ready to use.")}
               </p>
             </div>
 
-            <div className="space-y-2">
+            <div className="">
               <h3 className="font-medium">{t("1. Support (optional)")}</h3>
               <p className="text-text-lighter">
                 {t("Ongoing improvements and maintenance.")}

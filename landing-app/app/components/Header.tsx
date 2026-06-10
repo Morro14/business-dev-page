@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router";
 import { indexPathMatch } from "~/utils/general";
 import type { Language } from "~/vars";
 import Burger from "./Burger";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Header() {
   const { t, i18n } = useTranslation();
@@ -16,6 +16,22 @@ export default function Header() {
     servicesSection?.scrollIntoView();
   };
   const lang = i18n.language as Language;
+  const preferedTheme = window.matchMedia("(prefers-color-scheme: dark)")
+    .matches
+    ? "dark"
+    : "light";
+  console.log("preferedTheme", preferedTheme);
+  const userTheme = localStorage.getItem("theme");
+  console.log("userTheme", userTheme);
+  const [theme, setTheme] = useState(userTheme || preferedTheme);
+  const themeSwitchTo = theme === "light" ? "dark" : "light";
+  useEffect(() => {
+    const layout = document.getElementById("layout");
+    if (!layout) {
+      return;
+    }
+    layout.classList.toggle("dark", theme === "dark");
+  }, [theme]);
   return (
     <div className="w-full md:h-11 h-auto text-text-main text-base md:px-6 px-3">
       <div className="container-main mx-auto h-full flex flex-col md:flex-row md:items-center md:justify-between gap-6">
@@ -37,6 +53,19 @@ export default function Header() {
           <Link to={"contact"} className="hover:cursor-pointer underline">
             {t("Contanct")}
           </Link>
+          <div className="flex gap-2">
+            <button
+              onClick={() => {
+                localStorage.setItem("theme", themeSwitchTo);
+                setTheme(themeSwitchTo);
+              }}
+            >
+              <img
+                src={`./src/assets/${themeSwitchTo}-theme-icon.png`}
+                className="size-6"
+              />
+            </button>
+          </div>
           <div className="flex ">
             <div className="">{t("lang")}:</div>
             <LangSelect></LangSelect>

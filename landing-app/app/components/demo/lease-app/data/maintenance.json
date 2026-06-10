@@ -1,0 +1,18 @@
+[
+  {
+    "id": 51,
+    "equipment_id": 9,
+    "equipment_name": "Forklift Toyota 3T",
+    "start_date": "2026-04-15",
+    "end_date": "2026-04-25",
+    "status": "active"
+  },
+  {
+    "id": 52,
+    "equipment_id": 3,
+    "equipment_name": "Scissor Lift 12m",
+    "start_date": "2026-04-18",
+    "end_date": "2026-04-28",
+    "status": "active"
+  }
+]

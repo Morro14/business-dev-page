@@ -4,7 +4,7 @@ import { useCustomContext } from "./Context";
 import { useEffect, useState } from "react";
 
 export default function Overview() {
-  const { t } = useTranslation();
+  const { t } = useTranslation(["demo-lease-app"]);
   const context = useCustomContext();
   const equipmentCount = context?.data?.equipment.length || undefined;
   const availableCount = context?.data?.equipment.filter(
@@ -28,7 +28,6 @@ export default function Overview() {
     return "text-text-main duration-1000";
   };
   useEffect(() => changeValueState(), [context?.totalRevenue]);
-  console.log("valueState", valueState);
   return (
     <div className="space-y-4">
       <h2>{t("Overview")}</h2>
