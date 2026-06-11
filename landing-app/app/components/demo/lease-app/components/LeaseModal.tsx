@@ -25,7 +25,7 @@ export function LeaseModal() {
   const today = new Date();
   return (
     <div className="modal">
-      <div className="bg-white min-w-90 min-h-130 p-8 ">
+      <div className="dark:bg-bg-gradient-dark not-dark:bg-white min-w-90 min-h-130 p-8 ">
         <img
           className="object-cover h-32 w-full"
           src={`${BASE_MEDIA_URL + selectedEquipment.image}`}
@@ -45,7 +45,7 @@ export function LeaseModal() {
               ))}
             </select>
             <div className="flex flex-col pl-1">
-              <label className="text-sm text-gray-500">
+              <label className="text-sm text-text-lighter">
                 {t("Start date:")}
               </label>
               <input
@@ -57,7 +57,9 @@ export function LeaseModal() {
             </div>
 
             <div className="flex flex-col pl-1">
-              <label className="text-sm text-gray-500">{t("End date:")}</label>
+              <label className="text-sm text-text-lighter">
+                {t("End date:")}
+              </label>
               <input
                 className="text-lg"
                 type="date"
@@ -73,7 +75,7 @@ export function LeaseModal() {
                 ""
               )}
               <button
-                className="text-lg underline bg-accent"
+                className="text-lg text-black px-2 underline bg-accent"
                 onClick={() => {
                   if (!selectedCustomer || !startDate || !endDate) {
                     leasesContext.setCreateLeaseError(
@@ -92,12 +94,13 @@ export function LeaseModal() {
               </button>
 
               <button
+                className="px-2"
                 onClick={() => {
                   leasesContext.setCreateLeaseError(null);
                   closeLeaseModal();
                 }}
               >
-                Cancel
+                {t("Cancel")}
               </button>
             </div>
           </div>

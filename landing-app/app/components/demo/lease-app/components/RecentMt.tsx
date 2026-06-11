@@ -16,7 +16,7 @@ export default function RecentMt() {
     <div className="space-y-4 w-full">
       <h2>{t("Recent maintenance", { ns: "demo-lease-app" })}</h2>
       <p className="md:hidden">{t("scroll >")}</p>
-      <div className="w-full overflow-x-scroll">
+      <div className="w-full overflow-auto scrollbar-thin">
         <table className="min-w-180">
           <thead>
             <tr className="text-left">
@@ -35,7 +35,7 @@ export default function RecentMt() {
                       <td className="md:pr-8">
                         {formatDate(item.startDate, item.endDate)}
                       </td>
-                      <td className="md:pr-8">{item.status}</td>
+                      <td className="md:pr-8">{t(item.status)}</td>
                     </tr>
                   );
                 })}

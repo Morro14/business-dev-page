@@ -32,10 +32,10 @@ export default function Overview() {
     <div className="space-y-4">
       <h2>{t("Overview")}</h2>
       <div className="flex flex-col md:flex-row gap-2 md:gap-9">
-        <KPIBlock name={t("Total")} value={equipmentCount}></KPIBlock>
-        <KPIBlock name={t("Available")} value={availableCount}></KPIBlock>
-        <KPIBlock name={t("Leased")} value={leasedCount}></KPIBlock>
-        <KPIBlock name={t("Maintenance")} value={mtCount}></KPIBlock>
+        <KPIBlock name={t("total")} value={equipmentCount}></KPIBlock>
+        <KPIBlock name={t("available")} value={availableCount}></KPIBlock>
+        <KPIBlock name={t("leased")} value={leasedCount}></KPIBlock>
+        <KPIBlock name={t("maintenance")} value={mtCount}></KPIBlock>
       </div>
       <div className="space-x-8 pt-2 text-xl font-medium">
         <span className="">{t("Revenue")}:</span>

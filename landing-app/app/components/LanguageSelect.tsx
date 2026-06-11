@@ -26,7 +26,11 @@ export default function LangSelect() {
       >
         {LANGUAGES.map((lang) => {
           return (
-            <option key={"opt-lang-" + lang} value={lang}>
+            <option
+              key={"opt-lang-" + lang}
+              value={lang}
+              className="text-black"
+            >
               {languageLabels[lang]}
             </option>
           );

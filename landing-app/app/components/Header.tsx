@@ -20,9 +20,7 @@ export default function Header() {
     .matches
     ? "dark"
     : "light";
-  console.log("preferedTheme", preferedTheme);
   const userTheme = localStorage.getItem("theme");
-  console.log("userTheme", userTheme);
   const [theme, setTheme] = useState(userTheme || preferedTheme);
   const themeSwitchTo = theme === "light" ? "dark" : "light";
   useEffect(() => {
@@ -33,16 +31,16 @@ export default function Header() {
     layout.classList.toggle("dark", theme === "dark");
   }, [theme]);
   return (
-    <div className="w-full md:h-11 h-auto text-text-main text-base md:px-6 px-3">
-      <div className="container-main mx-auto h-full flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+    <div className="flex justify-center w-full sm:h-11 h-13 text-text-main text-base px-3 sm:py-0 py-2">
+      <div className="max-w-7xl w-full h-full flex sm:items-center justify-between flex-col sm:flex-row">
         <Link
           to={`/${i18n.language}`}
-          className="font-mono md:h-auto h-11 flex items-center"
+          className="font-mono font-medium md:h-auto h-11 flex items-center"
         >
           i.fomin.dev
         </Link>
 
-        <div className="md:gap-6 md:items-center flex flex-col md:flex-row md:static ">
+        <div className="gap-3 items-center flex static ">
           {indexPathMatch(loc.pathname, lang) ? (
             ""
           ) : (
@@ -53,23 +51,21 @@ export default function Header() {
           <Link to={"contact"} className="hover:cursor-pointer underline">
             {t("Contanct")}
           </Link>
-          <div className="flex gap-2">
-            <button
-              onClick={() => {
-                localStorage.setItem("theme", themeSwitchTo);
-                setTheme(themeSwitchTo);
-              }}
-            >
-              <img
-                src={`./src/assets/${themeSwitchTo}-theme-icon.png`}
-                className="size-6"
-              />
-            </button>
-          </div>
           <div className="flex ">
             <div className="">{t("lang")}:</div>
             <LangSelect></LangSelect>
           </div>
+          <button
+            onClick={() => {
+              localStorage.setItem("theme", themeSwitchTo);
+              setTheme(themeSwitchTo);
+            }}
+          >
+            <img
+              src={`/src/assets/${themeSwitchTo}-theme-icon.png`}
+              className="sm:size-5 size-4"
+            />
+          </button>
         </div>
         {/* <Burger params={{ showModalMenu, setShowModalMenu }}></Burger> */}
       </div>

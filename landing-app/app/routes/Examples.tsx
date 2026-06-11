@@ -45,18 +45,21 @@ export default function Examples() {
             <div className="space-y-4">
               <div className="text-sm italic text-text-lighter">
                 <p>{t("Client-side app")}</p>
-                <div className="md:w-150 md:h-84 bg-gray-100"></div>
+                <img
+                  className="md:w-150 md:h-84 border border-text-lighter object-cover"
+                  src="/src/assets/gh-scrnshot.png"
+                ></img>
               </div>
-              <div className="text-sm italic text-text-lighter">
-                <p>{t("A screenshot of admin panel")}</p>
-                <div className="md:w-150 md:h-84 bg-gray-100"></div>
-              </div>
-              <Link
+              {/* <div className="text-sm italic text-text-lighter"> */}
+              {/*   <p>{t("Admin panel")}</p> */}
+              {/*   <div className="md:w-150 md:h-84 bg-gray-100"></div> */}
+              {/* </div> */}
+              <a
                 className="mt-2 text-lg underline"
-                to={`/${i18n.language}/demo/lease-app`}
+                href={`https://shushan-gh.onrender.com/en`}
               >
                 {t("Open example")}
-              </Link>
+              </a>
             </div>
           </section>
 
@@ -86,7 +89,7 @@ export default function Examples() {
                 </p>
                 <Link to={`/${i18n.language}/demo/lease-app`}>
                   <img
-                    className="md:w-150 md:h-84 object-cover border border-text-main"
+                    className="md:w-150 md:h-84 object-cover border border-text-lighter"
                     src={leaseAppImg}
                   ></img>
                 </Link>

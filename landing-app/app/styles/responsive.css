@@ -2,5 +2,5 @@
 
 
 .container-main {
-  @apply 2xl:w-7xl
+  @apply xl:max-w-7xl 
 }

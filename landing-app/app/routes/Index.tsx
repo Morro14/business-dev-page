@@ -26,7 +26,7 @@ export default function Index() {
         </ul>
 
         {/* NAV */}
-        <div className="flex text-xl items-center gap-5">
+        <div className="flex flex-col sm:flex-row text-xl sm:items-center sm:gap-5">
           <Button></Button>
           <Link
             to={`/${i18n.language}/examples`}
@@ -45,7 +45,7 @@ export default function Index() {
 
       {/* SKIP */}
       <section className="space-y-4">
-        <p className="text-base text-gray-500">
+        <p className="text-base text-text-lighter">
           {
             <Trans i18nKey="skip-to-service">
               If you have already decided on building an app - skip to the{" "}
@@ -208,7 +208,7 @@ export default function Index() {
       {/* SERVICES */}
       <section className="space-y-6" id="section-services">
         <h2 className="text-2xl font-semibold">{t("Services")}</h2>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-text-lighter">
           {t(
             "The price for a specific project will be determined based on its features and scope.",
           )}

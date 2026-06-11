@@ -1,7 +1,10 @@
 {
+  "active": "active",
   "All fields must have values.": "All fields must have values.",
-  "Available": "Available",
+  "available": "available",
+  "Cancel": "Cancel",
   "Category...": "Category...",
+  "completed": "completed",
   "Confirm lease": "Confirm lease",
   "Customer": "Customer",
   "Daily rate": "Daily rate",
@@ -9,9 +12,9 @@
   "End date:": "End date:",
   "Equipment": "Equipment",
   "lease": "lease",
-  "Leased": "Leased",
+  "leased": "leased",
   "Location...": "Location...",
-  "Maintenance": "Maintenance",
+  "maintenance": "maintenance",
   "No equipment found with given parameters.": "No equipment found with given parameters.",
   "Overview": "Overview",
   "Recent leases": "Recent leases",
@@ -25,7 +28,7 @@
   "Start date:": "Start date:",
   "Status": "Status",
   "Status...": "Status...",
-  "Total": "Total",
+  "This this an example of a mock app — many more features can be added that suites your needs.": "This this an example of a mock app — many more features can be added that suites your needs.",
+  "total": "total",
   "Until": "Until"
 }
-

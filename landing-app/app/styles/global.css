@@ -8,23 +8,38 @@
 @theme {
   --color-text-main: #0F0E0E;
   --color-text-lighter: #383838;
+  --color-text-placeholder: #383838;
   --color-accent: #FFFB00;
   --color-accent-green: #65FF93;
   --color-black-transparent: #000000bf;
   --font-sans: "DM Sans", "Source Sans 3";
-  --font-mono: "DM Mono"
+  --font-mono: "DM Mono";
+  --color-bg-gradient-dark: #22201F;
+  --color-bg-gradient-lighter: #353130;
+  --color-bg-themed: #FFFFFF;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
 .dark {
-  --color-text-main: #fff;
-  --color-text-lighter: #fff;
+  --color-scheme-dark: #272727;
+  --color-text-main: #FFFFFF;
+  --color-text-lighter: #EBEBEB;
+  --color-text-placeholder: #B0B0B0;
   --color-accent: #FFFB00;
   --color-accent-green: #65FF93;
   --color-black-transparent: #000000bf;
+  @apply bg-linear-155 from-0% from-bg-gradient-dark to-100% to-bg-gradient-lighter;
 }
 
-
+/* .gradient-emerald { */
+/*   @apply bg-linear-to-b from-0% from-bg-emerald-dark to-100% to-bg-emerald-lighter */
+/* } */
+a {
+  @apply hover:opacity-80 transition-opacity duration-75
+}
+option {
+  @apply text-black
+}
 h1 {
   @apply md:text-5xl text-4xl font-semibold
 }

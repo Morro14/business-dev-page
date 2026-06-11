@@ -5,7 +5,7 @@ import "~/utils/i18n.ts";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={``}>
+    <html lang="en">
       <head>
         <meta charSet="utf-8" />
         <meta

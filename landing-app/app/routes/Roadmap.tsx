@@ -5,12 +5,14 @@ export default function Roadmap() {
   const { t } = useTranslation();
   return (
     <div className="space-y-16">
-      <QuickNav
-        links={[
-          { label: t("main"), path: "/" },
-          { label: t("contact"), path: "/contact" },
-        ]}
-      ></QuickNav>
+      <div className="max-sm:hidden block">
+        <QuickNav
+          links={[
+            { label: t("main"), path: "/" },
+            { label: t("contact"), path: "/contact" },
+          ]}
+        ></QuickNav>
+      </div>
       {/* ROADMAP */}
       <div className="space-y-10">
         <h1>{t("Roadmap example")}</h1>
@@ -153,8 +155,8 @@ export default function Roadmap() {
       </div>
       <QuickNav
         links={[
-          { label: "main", path: "/" },
-          { label: "contact", path: "/contact" },
+          { label: t("main"), path: "/" },
+          { label: t("contact"), path: "/contact" },
         ]}
       ></QuickNav>
     </div>

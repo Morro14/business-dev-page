@@ -6,7 +6,7 @@ export type EquipmentCategory =
   | "Lifting"
   | "Power";
 export type EquiupmentStatus = "available" | "leased" | "maintenance";
-type LeaseStatus = "active" | "completed";
+export type LeaseStatus = "active" | "completed";
 type MaintenanceStatus = "active" | "completed";
 
 export interface EquipmentData {

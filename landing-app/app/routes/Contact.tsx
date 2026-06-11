@@ -10,7 +10,7 @@ export default function Contact() {
       <h1>{t("Let's start building your app")}</h1>
       <div className="space-y-8">
         <div className="space-y-0">
-          <p className="text-base text-gray-600">{t("Contact via")}:</p>
+          <p className="text-base text-text-lighter">{t("Contact via")}:</p>
           <h2>{import.meta.env.VITE_EMAIL}</h2>
         </div>
         <p>

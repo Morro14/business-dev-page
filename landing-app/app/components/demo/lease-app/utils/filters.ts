@@ -7,7 +7,6 @@ const matchesSearch = (itemName: string, search: string) => {
   return normalize(itemName).includes(s);
 };
 export function filterEquipment(eqp: Equipment[], filters: Filters) {
-  console.log("filters", filters);
   const defaultValue = "";
   const eval_ = (key: keyof Filters, eqpValue: string, filterValue: string) => {
     if (filterValue === defaultValue) {

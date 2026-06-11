@@ -10,7 +10,7 @@ export default function Footer() {
       className="w-full text-lg border-t border-text-main h-36 mt-24"
     >
       <div className="mx-auto container-main p-6">
-        <p>{email}</p>
+        <p className="text-text-lighter">{email}</p>
         <p className="text-base text-text-lighter">
           {t("Developer specializing in custom business applications")}
         </p>

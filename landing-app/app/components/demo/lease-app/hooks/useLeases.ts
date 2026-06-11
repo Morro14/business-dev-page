@@ -33,7 +33,7 @@ export function useLeases() {
     if (!selectedEquipment) return;
     const startDateObj = new Date(startDate);
     const endDateObj = new Date(endDate);
-    const delta = endDateObj.getMilliseconds() - startDateObj.getMilliseconds();
+    const delta = endDateObj - startDateObj;
     const days = Math.floor(delta / (1000 * 60 * 60 * 24));
     const newLease = new Lease(
       {

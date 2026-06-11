@@ -51,7 +51,7 @@ export default function Search() {
             name="search"
             id="search-eqp"
             list="eqp-names"
-            className="border border-gray-500 px-1 h-8 text-base placeholder:text-gray-600 focus:placeholder:text-gray-300 md:w-auto w-full"
+            className="border border-gray-500 px-1 h-8 text-base placeholder:text-text-placeholder focus:placeholder:text-gray-300 md:w-auto w-full"
             placeholder={t("Search equipment...")}
           ></input>
           <datalist id="eqp-names">
