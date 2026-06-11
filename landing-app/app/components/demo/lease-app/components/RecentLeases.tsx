@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { useCustomContext } from "./Context";
-import type { LeaseStatus } from "../types";
 
 export default function RecentLeases() {
   const { t } = useTranslation(["demo-lease-app"]);
@@ -12,10 +11,6 @@ export default function RecentLeases() {
       day: "numeric",
     });
     return fmt.formatRange(startDate, endDate);
-  };
-  const statusStrings = {
-    completed: t("completed"),
-    active: t("active"),
   };
   return (
     <div className="space-y-4 w-full">

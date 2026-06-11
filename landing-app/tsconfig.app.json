@@ -6,9 +6,8 @@
     "module": "esnext",
     "types": ["vite/client"],
     "skipLibCheck": true,
-    "baseUrl": ".",
     "paths": {
-      "~/*": ["app/*"],
+      "~/*": ["./app/*"],
       "root/*": ["./*"],
       "@components/*": ["./app/components/*"],
       "@routes/*": ["./app/components/routes/*"],

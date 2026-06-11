@@ -9,7 +9,7 @@ import translationRU from "../../src/i18n/locales/ru/translation.json";
 
 i18n
   .use(
-    resourcesToBackend((language, namespace) => {
+    resourcesToBackend((language: string, namespace: string) => {
       return import(
         `../../src/i18n/locales/${language}/${namespace}.json`
       ).then((module) => module.default);

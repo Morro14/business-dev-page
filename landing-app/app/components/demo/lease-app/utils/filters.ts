@@ -20,11 +20,15 @@ export function filterEquipment(eqp: Equipment[], filters: Filters) {
   const eqpData = eqp.map((item) => {
     return { ...item, search: item.name };
   });
-  const filteredEqpData = eqpData.filter((item: Equipment) => {
-    const saticfy = Object.entries(filters).every((entry) => {
-      return eval_(entry[0], item[entry[0]], entry[1]);
-    });
-    return saticfy;
-  });
+  const filteredEqpData = eqpData.filter(
+    (item: Equipment & { search: string }) => {
+      const saticfy = Object.entries(filters).every((entry) => {
+        const filterKey = entry[0] as keyof Filters;
+        const filterValue = entry[1] as string;
+        return eval_(filterKey, item[filterKey], filterValue);
+      });
+      return saticfy;
+    },
+  );
   return filteredEqpData;
 }

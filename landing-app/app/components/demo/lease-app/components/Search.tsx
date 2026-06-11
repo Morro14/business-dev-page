@@ -18,8 +18,9 @@ export default function Search() {
   const eqpCats = getEqpCategories(eqp);
   const eqpStatuses = getEqpStatuses(eqp);
   const eqpLocs = getEqpLocations(eqp);
-  const handleFormChange = (e) => {
-    const formData = new FormData(e.currentTarget);
+  const handleFormChange = () => {
+    if (!formRef.current) return;
+    const formData = new FormData(formRef.current);
     const formDataObj = Object.fromEntries(formData) as unknown as Filters;
     filterContext?.setFilters(formDataObj);
     console.dir(formDataObj);

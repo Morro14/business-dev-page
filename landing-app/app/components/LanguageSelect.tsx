@@ -1,6 +1,7 @@
 import { LANGUAGES } from "~/vars";
 import { useLocation, useNavigate, useParams } from "react-router";
 import { useTranslation } from "react-i18next";
+import type { ChangeEvent } from "react";
 
 export default function LangSelect() {
   const { i18n } = useTranslation();
@@ -11,7 +12,7 @@ export default function LangSelect() {
   const params = useParams();
   const loc = useLocation();
   const nav = useNavigate();
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const segments = loc.pathname.split("/");
     segments[1] = e.target.value;
     i18n.changeLanguage(e.target.value);

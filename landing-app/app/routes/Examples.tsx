@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import QuickNav from "~/components/QuickNav";
-import leaseAppImg from "src/assets/demo-lease-app-img.jpg";
+import leaseAppImg from "root/src/assets/demo-lease-app-img.jpg";
 import { Link } from "react-router";
 
 export default function Examples() {

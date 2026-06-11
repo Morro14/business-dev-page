@@ -114,12 +114,12 @@ export class Customer {
   }
 }
 
-export type Data = {
+export interface Data {
   customers: Customer[];
   equipment: Equipment[];
   leases: Lease[];
   mts: Maintenance[];
-};
+}
 
 export interface Filters {
   search: string;

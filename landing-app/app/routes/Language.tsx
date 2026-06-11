@@ -15,7 +15,7 @@ function getLanguagePathParam(pathname: string) {
 
 export default function Language() {
   const { i18n } = useTranslation();
-  const detectedLang = i18n.language;
+  const detectedLang = i18n.language as (typeof LANGUAGES)[number];
   const loc = useLocation();
   const pathname = loc.pathname;
   const searchParams = loc.search;
@@ -41,7 +41,7 @@ export default function Language() {
     );
   }
 
-  if (!LANGUAGES.includes(lang)) {
+  if (!(LANGUAGES as readonly string[]).includes(lang)) {
     const segments = pathname.split("/");
     segments[1] = DEFAULT_LANGUAGE;
     const newPathname = segments.join("/");

@@ -29,7 +29,6 @@ export default function EqpCard({ eqp }: { eqp: Equipment }) {
     return fmt.format(date);
   };
   const eqpStatusString = t(eqp.status);
-  console.log("eqpStatus", eqp.status);
   return (
     <div className="w-64 min-h-64 border border-gray-500">
       <img

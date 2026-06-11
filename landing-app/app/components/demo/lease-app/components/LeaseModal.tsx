@@ -1,21 +1,19 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import customers from "../data/customers.json";
 import { useTranslation } from "react-i18next";
 import { useLeasesContext } from "./LeasesContextProvider";
-import { useCustomContext } from "./Context";
 import ErrorBlock from "./ErrorBlock";
 import type { Customer } from "../types";
 
 const BASE_MEDIA_URL = "/app/components/demo/lease-app/data/media/equipment/";
 export function LeaseModal() {
   const leasesContext = useLeasesContext();
-  const dataContext = useCustomContext();
   const { isOpen, selectedEquipment, createLease, closeLeaseModal } =
     leasesContext.leasesState;
   const { t } = useTranslation(["demo-lease-app"]);
   const [customerId, setCustomerId] = useState<number>();
-  const [startDate, setStartDate] = useState<string>();
-  const [endDate, setEndDate] = useState<string>();
+  const [startDate, setStartDate] = useState<Date>();
+  const [endDate, setEndDate] = useState<Date>();
 
   if (!isOpen || !selectedEquipment) return null;
 
@@ -85,8 +83,8 @@ export function LeaseModal() {
                   }
                   createLease({
                     customer: selectedCustomer,
-                    startDate: startDate,
-                    endDate: endDate,
+                    startDate: startDate.toISOString(),
+                    endDate: endDate.toISOString(),
                   });
                 }}
               >

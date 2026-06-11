@@ -4,7 +4,7 @@ import {
   useState,
   type SetStateAction,
 } from "react";
-import type { Customer, Data, Equipment, Lease } from "../types";
+import type { Data, Equipment, Lease } from "../types";
 
 interface CustomContext {
   data: Data | undefined;
@@ -32,55 +32,30 @@ export default function ContextProvider({
   //   params.dataInit.equipment,
   // );
   const updateData = (update: Equipment | Lease) => {
-    // console.log("update", update.constructor.name);
     if (!data) {
       return;
     }
     const updateClass = update.constructor.name;
     switch (updateClass) {
-      // case "Equipment":
-      //   const eqp = update as Equipment;
-      //   const eqpPrevIndex = data?.equipment?.findIndex(
-      //     (item) => item.id === eqp.id,
-      //   );
-      //
-      //   if (eqpPrevIndex === -1) {
-      //     setData({ ...data, equipment: [...data.equipment, eqp] });
-      //     break;
-      //   }
-      //   const eqpCopy = data?.equipment as Equipment[];
-      //   eqpCopy[eqpPrevIndex] = eqp;
-      //   setData({
-      //     equipment: eqpCopy,
-      //     customers: data?.customers,
-      //     leases: data?.leases,
-      //   });
-      //   break;
       case "Lease":
         const lease = update as Lease;
         const leasePrevIndex = data?.leases?.findIndex(
           (item) => item.id === lease.id,
         );
 
-        const eqpCopy = data.equipment;
-        const updatedEqp = eqpCopy.find(
-          (item) => item.id === lease.equipment?.id,
-        ) as Equipment;
-        updatedEqp.status = "leased";
-        if (leasePrevIndex === -1) {
-          setData({
-            ...data,
-            equipment: eqpCopy,
-            leases: [...data.leases, lease],
-          });
-          break;
+        const eqp = data.equipment;
+        const updatedEqp = eqp.find((item) => item.id === lease.equipment?.id);
+        if (updatedEqp) {
+          updatedEqp.status = "leased";
         }
-        const leasesCopy = data.leases as Lease[];
-        leasesCopy[leasePrevIndex] = lease;
+        let leases = data.leases;
+        if (leasePrevIndex === -1) {
+          leases = [...data.leases, lease];
+        }
+        leases[leasePrevIndex] = lease;
         setData({
-          equipment: eqpCopy,
-          customers: data.customers,
-          leases: leasesCopy,
+          ...data,
+          leases: leases,
         });
         break;
     }

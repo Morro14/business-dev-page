@@ -2,6 +2,7 @@ import { useState } from "react";
 import mockLeases from "../data/leases.json";
 import { Customer, Lease, type Equipment } from "../types";
 import { useCustomContext } from "../components/Context";
+import { Temporal } from "@js-temporal/polyfill";
 
 export function useLeases() {
   const [leases] = useState(mockLeases);
@@ -31,10 +32,10 @@ export function useLeases() {
     endDate: string;
   }) => {
     if (!selectedEquipment) return;
-    const startDateObj = new Date(startDate);
-    const endDateObj = new Date(endDate);
-    const delta = endDateObj - startDateObj;
-    const days = Math.floor(delta / (1000 * 60 * 60 * 24));
+    const startDateObj = Temporal.PlainDate.from(startDate.slice(0, 10));
+    const endDateObj = Temporal.PlainDate.from(endDate.slice(0, 10));
+    const delta = startDateObj.until(endDateObj);
+    const days = delta.total("day");
     const newLease = new Lease(
       {
         id: Date.now(),

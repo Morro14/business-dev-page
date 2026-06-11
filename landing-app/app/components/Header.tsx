@@ -3,18 +3,17 @@ import LangSelect from "./LanguageSelect";
 import { Link, useLocation } from "react-router";
 import { indexPathMatch } from "~/utils/general";
 import type { Language } from "~/vars";
-import Burger from "./Burger";
 import { useEffect, useState } from "react";
 
 export default function Header() {
   const { t, i18n } = useTranslation();
   const loc = useLocation();
-  const [showModalMenu, setShowModalMenu] = useState(false);
+  // const [showModalMenu, setShowModalMenu] = useState(false);
 
-  const handleClick = () => {
-    const servicesSection = document.getElementById("section-what-i-build");
-    servicesSection?.scrollIntoView();
-  };
+  // const handleClick = () => {
+  //   const servicesSection = document.getElementById("section-what-i-build");
+  //   servicesSection?.scrollIntoView();
+  // };
   const lang = i18n.language as Language;
   const preferedTheme = window.matchMedia("(prefers-color-scheme: dark)")
     .matches
