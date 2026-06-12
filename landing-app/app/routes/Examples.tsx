@@ -3,6 +3,7 @@ import QuickNav from "~/components/QuickNav";
 import leaseAppImg from "root/src/assets/demo-lease-app-img.jpg";
 import { Link } from "react-router";
 
+const MEDIA_BASE_URL = import.meta.env.VITE_MEDIA_BASE_URL;
 export default function Examples() {
   const { t, i18n } = useTranslation();
   return (
@@ -47,7 +48,7 @@ export default function Examples() {
                 <p>{t("Client-side app")}</p>
                 <img
                   className="md:w-150 md:h-84 border border-text-lighter object-cover"
-                  src="/src/assets/gh-scrnshot.png"
+                  src={`${MEDIA_BASE_URL}/gh-scrnshot.webp`}
                 ></img>
               </div>
               {/* <div className="text-sm italic text-text-lighter"> */}
@@ -90,7 +91,7 @@ export default function Examples() {
                 <Link to={`/${i18n.language}/demo/lease-app`}>
                   <img
                     className="md:w-150 md:h-84 object-cover border border-text-lighter"
-                    src={leaseAppImg}
+                    src={`${MEDIA_BASE_URL}/demo-lease-app-scrnshot.webp`}
                   ></img>
                 </Link>
               </div>

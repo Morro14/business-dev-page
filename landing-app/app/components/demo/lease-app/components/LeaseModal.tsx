@@ -5,7 +5,7 @@ import { useLeasesContext } from "./LeasesContextProvider";
 import ErrorBlock from "./ErrorBlock";
 import type { Customer } from "../types";
 
-const BASE_MEDIA_URL = "/app/components/demo/lease-app/data/media/equipment/";
+const BASE_MEDIA_URL = import.meta.env.VITE_MEDIA_BASE_URL;
 export function LeaseModal() {
   const leasesContext = useLeasesContext();
   const { isOpen, selectedEquipment, createLease, closeLeaseModal } =
@@ -26,7 +26,7 @@ export function LeaseModal() {
       <div className="dark:bg-bg-gradient-dark not-dark:bg-white min-w-90 min-h-130 p-8 ">
         <img
           className="object-cover h-32 w-full"
-          src={`${BASE_MEDIA_URL + selectedEquipment.image}`}
+          src={`${BASE_MEDIA_URL}/demo/${selectedEquipment.image}`}
         />
         <div className="flex flex-col space-y-4">
           <h2 className="mt-4">Lease {selectedEquipment.name}</h2>

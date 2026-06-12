@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useLeasesContext } from "./LeasesContextProvider";
 import { useCustomContext } from "./Context";
 
-const BASE_MEDIA_URL = "/app/components/demo/lease-app/data/media/equipment/";
+const BASE_MEDIA_URL = import.meta.env.VITE_MEDIA_BASE_URL;
 
 export default function EqpCard({ eqp }: { eqp: Equipment }) {
   const { t } = useTranslation(["demo-lease-app"]);
@@ -33,7 +33,7 @@ export default function EqpCard({ eqp }: { eqp: Equipment }) {
     <div className="w-64 min-h-64 border border-gray-500">
       <img
         className="object-cover h-32 w-full"
-        src={`${BASE_MEDIA_URL + eqp.image}`}
+        src={`${BASE_MEDIA_URL}/demo/${eqp.image}`}
       />
       <div className={`p-2`}>
         <h3>{eqp.name}</h3>

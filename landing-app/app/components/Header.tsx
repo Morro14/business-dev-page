@@ -5,6 +5,8 @@ import { indexPathMatch } from "~/utils/general";
 import type { Language } from "~/vars";
 import { useEffect, useState } from "react";
 
+const MEDIA_BASE_URL = import.meta.env.VITE_MEDIA_BASE_URL;
+
 export default function Header() {
   const { t, i18n } = useTranslation();
   const loc = useLocation();
@@ -61,7 +63,7 @@ export default function Header() {
             }}
           >
             <img
-              src={`/src/assets/${themeSwitchTo}-theme-icon.png`}
+              src={`${MEDIA_BASE_URL}/${themeSwitchTo}-theme-icon.webp`}
               className="sm:size-5 size-4"
             />
           </button>
