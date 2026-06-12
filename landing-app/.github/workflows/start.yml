@@ -4,4 +4,5 @@ steps:
   - name: Build
     env:
       VITE_EMAIL: ${{ vars.VITE_EMAIL }}
+      VITE_MEDIA_BASE_URL: ${{ vars.VITE_MEDIA_BASE_URL }}
     run: npm run build
