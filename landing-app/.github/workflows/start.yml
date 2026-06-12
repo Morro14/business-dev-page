@@ -1,8 +1,53 @@
-steps:
-  - uses: actions/checkout@v4
+name: Deploy
 
-  - name: Build
-    env:
-      VITE_EMAIL: ${{ vars.VITE_EMAIL }}
-      VITE_MEDIA_BASE_URL: ${{ vars.VITE_MEDIA_BASE_URL }}
-    run: npm run build
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.12.2
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build
+        env:
+          VITE_EMAIL: ${{ vars.VITE_EMAIL }}
+          VITE_MEDIA_BASE_URL: ${{ vars.VITE_MEDIA_BASE_URL }}
+        run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./build/client
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
