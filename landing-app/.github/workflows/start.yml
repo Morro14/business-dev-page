@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - main
+      - master
 
 permissions:
   contents: read
@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: github-pages
+      name: buisiness-dev
 
     steps:
       - uses: actions/checkout@v4
@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: github-pages
+      name: buisiness-dev
 
     steps:
       - id: deployment
