@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useCustomContext } from "./Context";
+import { useEffect, useState } from "react";
 
 export default function RecentMt() {
   const { t } = useTranslation(["demo-lease-app"]);
@@ -12,17 +13,55 @@ export default function RecentMt() {
     });
     return fmt.formatRange(startDate, endDate);
   };
+  const [blur, setBlur] = useState({ left: false, right: true });
+  useEffect(() => {
+    const containerTable = document.getElementById("container-table-mts");
+    const table = document.getElementById("table-mts");
+    if (!containerTable || !table) return;
+    let blur_ = { left: false, right: true };
+    containerTable.addEventListener("scroll", () => {
+      console.log(containerTable.scrollLeft);
+      if (containerTable.scrollLeft > 4) {
+        console.log(">");
+        blur_.left = true;
+      } else {
+        blur_.left = false;
+      }
+      if (
+        containerTable.scrollWidth - containerTable.clientWidth >
+        containerTable.scrollLeft + 4
+      ) {
+        blur_.right = true;
+      } else {
+        blur_.right = false;
+      }
+      setBlur(blur_);
+    });
+  }, [blur, setBlur]);
   return (
     <div className="space-y-4 w-full">
-      <h2>{t("Recent maintenance", { ns: "demo-lease-app" })}</h2>
-      <p className="md:hidden">{t("scroll >")}</p>
-      <div className="w-full overflow-auto scrollbar-thin">
-        <table className="min-w-180">
+      <h3 className="text-2xl!">
+        {t("Recent maintenance", { ns: "demo-lease-app" })}
+      </h3>
+      <div
+        id="container-table-mts"
+        className={`overflow-auto scrollbar-thin ${blur.left ? "mask-l-from-98% mask-l-to-100%" : ""} ${blur.right ? "mask-r-from-98% mask-r-to-100%" : ""}`}
+      >
+        <table
+          className="min-w-180 border border-gray-400 border-collapse"
+          id="table-mts"
+        >
           <thead>
             <tr className="text-left">
-              <th>{t("Equipment")}</th>
-              <th>{t("Dates")}</th>
-              <th>{t("Status")}</th>
+              <th className="bg-bg-lighter px-2 border border-gray-400">
+                {t("Equipment")}
+              </th>
+              <th className="bg-bg-lighter px-2 border border-gray-400">
+                {t("Dates")}
+              </th>
+              <th className="bg-bg-lighter px-2 border border-gray-400">
+                {t("Status")}
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -30,12 +69,19 @@ export default function RecentMt() {
               ? ""
               : mts.map((item, i) => {
                   return (
-                    <tr key={`mts-table-row-${i}`}>
-                      <td className="md:pr-8">{item.equipment?.name}</td>
-                      <td className="md:pr-8">
+                    <tr
+                      key={`mts-table-row-${i}`}
+                      className="text-text-lighter"
+                    >
+                      <td className="px-2 border border-gray-400">
+                        {item.equipment?.name}
+                      </td>
+                      <td className="px-2 border border-gray-400">
                         {formatDate(item.startDate, item.endDate)}
                       </td>
-                      <td className="md:pr-8">{t(item.status)}</td>
+                      <td className="px-2 border border-gray-400">
+                        {t(item.status)}
+                      </td>
                     </tr>
                   );
                 })}

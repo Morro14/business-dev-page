@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useCustomContext } from "./Context";
+import { useEffect, useRef, useState } from "react";
 
 export default function RecentLeases() {
   const { t } = useTranslation(["demo-lease-app"]);
@@ -12,37 +13,101 @@ export default function RecentLeases() {
     });
     return fmt.formatRange(startDate, endDate);
   };
+  const [blur, setBlur] = useState({ left: false, right: true });
+  useEffect(() => {
+    // const containerOuter = document.getElementById(
+    //   "container-table-leases-outer",
+    // );
+    const containerTable = document.getElementById("container-table-leases");
+    const table = document.getElementById("table-leases");
+    if (!containerTable || !table) return;
+    // const containerWidth = containerTable.clientWidth
+    let blur_ = { left: false, right: true };
+    containerTable.addEventListener("scroll", () => {
+      console.log(containerTable.scrollLeft);
+      if (containerTable.scrollLeft > 4) {
+        console.log(">");
+        blur_.left = true;
+      } else {
+        blur_.left = false;
+      }
+      if (
+        containerTable.scrollWidth - containerTable.clientWidth >
+        containerTable.scrollLeft + 4
+      ) {
+        blur_.right = true;
+      } else {
+        blur_.right = false;
+      }
+      setBlur(blur_);
+    });
+    // const blur = document.getElementById("scroll-overflow-blur-leases");
+    // if (!blur || !containerOuter || !containerTable) {
+    //   return;
+    // }
+    // const containerHeight = containerOuter?.clientHeight;
+    // blur.style.height = `${containerHeight}px`;
+  }, [blur, setBlur]);
+  console.log("blur", blur);
   return (
-    <div className="space-y-4 w-full">
-      <h2>{t("Recent leases")}</h2>
-      <p className="md:hidden">{t("scroll >")}</p>
-      <div className="w-full overflow-auto scrollbar-thin">
-        <table className="min-w-180">
-          <thead>
-            <tr className="text-left">
-              <th>{t("Equipment")}</th>
-              <th>{t("Customer")}</th>
-              <th>{t("Dates")}</th>
-              <th>{t("Status")}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {!leases
-              ? ""
-              : leases.map((item, i) => {
-                  return (
-                    <tr key={`leases-table-row-${i}`}>
-                      <td className="md:pr-8">{item.equipment?.name}</td>
-                      <td className="md:pr-8">{item.customer?.name}</td>
-                      <td className="md:pr-8">
-                        {formatDate(item.startDate, item.endDate)}
-                      </td>
-                      <td className="md:pr-8">{t(item.status)}</td>
-                    </tr>
-                  );
-                })}
-          </tbody>
-        </table>
+    <div className="relative space-y-4 w-full">
+      <h3 className="text-2xl!">{t("Recent leases")}</h3>
+      <div className="relative flex" id="container-table-leases-outer">
+        {/* <div */}
+        {/*   className={`absolute w-8 bg-white right-0 top-0 `} */}
+        {/*   id="scroll-overflow-blur-leases" */}
+        {/* ></div> */}
+        <div
+          id="container-table-leases"
+          className={`overflow-auto scrollbar-thin ${blur.left ? "mask-l-from-98% mask-l-to-100%" : ""} ${blur.right ? "mask-r-from-98% mask-r-to-100%" : ""}`}
+        >
+          <table
+            className="min-w-180 border border-gray-400 border-collapse"
+            id="table-leases"
+          >
+            <thead>
+              <tr className="text-left">
+                <th className="bg-bg-lighter px-2 border border-gray-400">
+                  {t("Equipment")}
+                </th>
+                <th className="bg-bg-lighter px-2 border border-gray-400">
+                  {t("Customer")}
+                </th>
+                <th className="bg-bg-lighter px-2 border border-gray-400">
+                  {t("Dates")}
+                </th>
+                <th className="bg-bg-lighter px-2 border border-gray-400">
+                  {t("Status")}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {!leases
+                ? ""
+                : leases.map((item, i) => {
+                    return (
+                      <tr
+                        key={`leases-table-row-${i}`}
+                        className="text-text-lighter"
+                      >
+                        <td className="px-2 border border-gray-400">
+                          {item.equipment?.name}
+                        </td>
+                        <td className="px-2 border border-gray-400">
+                          {item.customer?.name}
+                        </td>
+                        <td className="px-2 border border-gray-400">
+                          {formatDate(item.startDate, item.endDate)}
+                        </td>
+                        <td className="px-2 border border-gray-400">
+                          {t(item.status)}
+                        </td>
+                      </tr>
+                    );
+                  })}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

@@ -16,7 +16,8 @@
   --font-mono: "DM Mono";
   --color-bg-gradient-dark: #22201F;
   --color-bg-gradient-lighter: #353130;
-  --color-bg-themed: #FFFFFF;
+  
+  --color-bg-lighter: #F2F2F2;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
@@ -28,6 +29,7 @@
   --color-accent: #FFFB00;
   --color-accent-green: #65FF93;
   --color-black-transparent: #000000bf;
+  --color-bg-lighter: #33302F;
   @apply bg-linear-155 from-0% from-bg-gradient-dark to-100% to-bg-gradient-lighter;
 }
 
