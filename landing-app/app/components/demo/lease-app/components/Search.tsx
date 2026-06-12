@@ -42,12 +42,12 @@ export default function Search() {
       <h2>{t("Search equipment")}</h2>
       <Form
         method="get"
-        className="flex md:space-x-8 max-md:space-y-4 pt-2 text-xl font-medium md:w-auto w-full "
+        className="flex flex-col md:flex-row md:space-x-8 max-md:space-y-4 pt-2 text-xl font-medium md:w-auto w-full max-md:w-80 max-md:items-start "
         onChange={handleFormChange}
         onSubmit={(e) => e.preventDefault()}
         ref={formRef}
       >
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 max-md:w-full">
           <input
             name="search"
             id="search-eqp"
@@ -62,7 +62,7 @@ export default function Search() {
           </datalist>
           <button onClick={() => handleFieldReset("search-eqp")}>×</button>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 max-md:w-full">
           <select
             name="category"
             id="category-eqp"
@@ -81,7 +81,7 @@ export default function Search() {
           </select>
           <button onClick={() => handleFieldReset("category-eqp")}>×</button>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 max-md:w-full">
           <select
             name="status"
             id="status-eqp"
@@ -100,7 +100,7 @@ export default function Search() {
           </select>
           <button onClick={() => handleFieldReset("status-eqp")}>×</button>
         </div>
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 max-md:w-full">
           <select
             name="location"
             id="location-eqp"
