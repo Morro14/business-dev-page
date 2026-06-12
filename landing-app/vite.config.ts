@@ -6,7 +6,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [tsconfigPaths(), reactRouter(), tailwindcss()],
-  base: "/business-dev-page/",
+  // base: "/business-dev-page/",
   // resolve: {
   //   alias: {
   //     "~": path.resolve(__dirname, "app"),
