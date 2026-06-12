@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import QuickNav from "~/components/QuickNav";
-import leaseAppImg from "root/src/assets/demo-lease-app-img.jpg";
 import { Link } from "react-router";
 
 const MEDIA_BASE_URL = import.meta.env.VITE_MEDIA_BASE_URL;
