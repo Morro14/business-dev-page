@@ -23,6 +23,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: 24.12.2
@@ -34,9 +35,11 @@ jobs:
         env:
           VITE_EMAIL: ${{ vars.VITE_EMAIL }}
           VITE_MEDIA_BASE_URL: ${{ vars.VITE_MEDIA_BASE_URL }}
-        run: npm run build
+        run: | 
+        npm run build
+        cp build/client/index.html build/client/404.html
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: ./build/client
 
@@ -49,4 +52,4 @@ jobs:
 
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
