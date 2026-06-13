@@ -16,7 +16,7 @@ export default function Roadmap() {
       {/* ROADMAP */}
       <div className="space-y-10">
         <h1>{t("Roadmap example")}</h1>
-        <p className="italic text-text-lighter">
+        <p className="italic text-text-lighter text-base">
           {t(
             "A general example of development process. Specifics will vary depending on your project’s goals.",
           )}

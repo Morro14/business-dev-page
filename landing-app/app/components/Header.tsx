@@ -33,10 +33,10 @@ export default function Header() {
   }, [theme]);
   return (
     <div className="flex justify-center w-full sm:h-11 h-13 text-text-main text-base px-3 sm:py-0 py-2">
-      <div className="max-w-7xl w-full h-full flex sm:items-center justify-between flex-col sm:flex-row">
+      <div className="max-w-7xl w-full h-full flex sm:items-center items-start justify-between flex-col sm:flex-row">
         <Link
           to={`/${i18n.language}`}
-          className="font-mono font-medium md:h-auto h-11 flex items-center"
+          className="font-mono font-medium md:h-auto h-11 flex items-center w-full "
         >
           i.fomin.dev
         </Link>
@@ -45,11 +45,17 @@ export default function Header() {
           {indexPathMatch(loc.pathname, lang) ? (
             ""
           ) : (
-            <Link className="underline" to={`/${i18n.language}`}>
+            <Link
+              className="hover:cursor-pointer underline lowercase"
+              to={`/${i18n.language}`}
+            >
               {t("Main")}
             </Link>
           )}
-          <Link to={"contact"} className="hover:cursor-pointer underline">
+          <Link
+            to={"contact"}
+            className="hover:cursor-pointer underline lowercase"
+          >
             {t("Contanct")}
           </Link>
           <div className="flex ">
@@ -64,7 +70,7 @@ export default function Header() {
           >
             <img
               src={`${MEDIA_BASE_URL}/${themeSwitchTo}-theme-icon.webp`}
-              className="sm:size-5 size-4"
+              className="sm:size-5 size-4 opacity-80"
             />
           </button>
         </div>

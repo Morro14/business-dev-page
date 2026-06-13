@@ -11,7 +11,7 @@ export default function Footer() {
     >
       <div className="mx-auto container-main p-6">
         <p className="text-text-lighter">{email}</p>
-        <p className="text-base text-text-lighter">
+        <p className="text-sm text-text-lighter">
           {t("Developer specializing in custom business applications")}
         </p>
       </div>

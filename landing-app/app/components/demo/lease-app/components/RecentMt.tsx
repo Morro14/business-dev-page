@@ -20,9 +20,7 @@ export default function RecentMt() {
     if (!containerTable || !table) return;
     let blur_ = { left: false, right: true };
     containerTable.addEventListener("scroll", () => {
-      console.log(containerTable.scrollLeft);
       if (containerTable.scrollLeft > 4) {
-        console.log(">");
         blur_.left = true;
       } else {
         blur_.left = false;
@@ -53,7 +51,7 @@ export default function RecentMt() {
         >
           <thead>
             <tr className="text-left">
-              <th className="bg-bg-lighter px-2 border border-gray-400">
+              <th className="bg-bg-lighter px-2 py-1 border border-gray-400">
                 {t("Equipment")}
               </th>
               <th className="bg-bg-lighter px-2 border border-gray-400">
@@ -73,7 +71,7 @@ export default function RecentMt() {
                       key={`mts-table-row-${i}`}
                       className="text-text-lighter"
                     >
-                      <td className="px-2 border border-gray-400">
+                      <td className="px-2 py-1 border border-gray-400">
                         {item.equipment?.name}
                       </td>
                       <td className="px-2 border border-gray-400">

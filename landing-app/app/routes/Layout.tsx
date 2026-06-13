@@ -11,7 +11,7 @@ export default function LayoutMain() {
     >
       <Header></Header>
 
-      <div className="text-lg">
+      <div className="text-base">
         <main className="max-w-7xl mx-auto 2xl:px-0 px-3 pb-24 pt-12 ">
           <Outlet></Outlet>
         </main>

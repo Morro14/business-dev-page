@@ -11,7 +11,7 @@ export default function QuickNav({ links }: { links: Link[] }) {
   return (
     <div>
       <p className="text-base text-text-lighter">{t("back to")}:</p>
-      <div className="flex flex-col">
+      <div className="flex flex-col items-start">
         {links.map((link) => (
           <Link
             to={`/${i18n.language}/${link.path}`}

@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useCustomContext } from "./Context";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function RecentLeases() {
   const { t } = useTranslation(["demo-lease-app"]);
@@ -15,18 +15,12 @@ export default function RecentLeases() {
   };
   const [blur, setBlur] = useState({ left: false, right: true });
   useEffect(() => {
-    // const containerOuter = document.getElementById(
-    //   "container-table-leases-outer",
-    // );
     const containerTable = document.getElementById("container-table-leases");
     const table = document.getElementById("table-leases");
     if (!containerTable || !table) return;
-    // const containerWidth = containerTable.clientWidth
     let blur_ = { left: false, right: true };
     containerTable.addEventListener("scroll", () => {
-      console.log(containerTable.scrollLeft);
       if (containerTable.scrollLeft > 4) {
-        console.log(">");
         blur_.left = true;
       } else {
         blur_.left = false;
@@ -41,14 +35,7 @@ export default function RecentLeases() {
       }
       setBlur(blur_);
     });
-    // const blur = document.getElementById("scroll-overflow-blur-leases");
-    // if (!blur || !containerOuter || !containerTable) {
-    //   return;
-    // }
-    // const containerHeight = containerOuter?.clientHeight;
-    // blur.style.height = `${containerHeight}px`;
   }, [blur, setBlur]);
-  console.log("blur", blur);
   return (
     <div className="relative space-y-4 w-full">
       <h3 className="text-2xl!">{t("Recent leases")}</h3>
@@ -67,7 +54,7 @@ export default function RecentLeases() {
           >
             <thead>
               <tr className="text-left">
-                <th className="bg-bg-lighter px-2 border border-gray-400">
+                <th className="bg-bg-lighter px-2 py-1 border border-gray-400">
                   {t("Equipment")}
                 </th>
                 <th className="bg-bg-lighter px-2 border border-gray-400">
@@ -90,7 +77,7 @@ export default function RecentLeases() {
                         key={`leases-table-row-${i}`}
                         className="text-text-lighter"
                       >
-                        <td className="px-2 border border-gray-400">
+                        <td className="px-2 py-1 border border-gray-400">
                           {item.equipment?.name}
                         </td>
                         <td className="px-2 border border-gray-400">

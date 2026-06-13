@@ -1,10 +1,8 @@
 {
-  "active": "active",
   "All fields must have values.": "All fields must have values.",
   "available": "available",
   "Cancel": "Cancel",
   "Category...": "Category...",
-  "completed": "completed",
   "Confirm lease": "Confirm lease",
   "Customer": "Customer",
   "Daily rate": "Daily rate",
@@ -21,7 +19,6 @@
   "Recent maintenance": "Recent maintenance",
   "reset filter": "reset filter",
   "Revenue": "Revenue",
-  "scroll >": "scroll >",
   "Search equipment": "Search equipment",
   "Search equipment...": "Search equipment...",
   "Select customer": "Select customer",

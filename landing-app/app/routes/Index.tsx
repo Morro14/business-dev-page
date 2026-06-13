@@ -200,7 +200,12 @@ export default function Index() {
               <li>{t("customer portals")}</li>
               <li>{t("booking or request systems")}</li>
               <li>{t("order/status tracking")}</li>
-              <li>{t("simple SaaS products")}</li>
+              <li>{t("simple SaaS* products")}</li>
+              <p className="text-xs/4 text-gray-500 mt-1">
+                {t(
+                  "* SaaS (Software as a Service) is a cloud-based software delivery model where a provider hosts applications and makes them available to users over the internet.",
+                )}
+              </p>
             </ul>
           </div>
         </div>
@@ -232,6 +237,11 @@ export default function Index() {
           <div className="">
             <h3 className="font-medium">{t("MVP Development")}</h3>
             <p className="text-text-lighter">{t("3–6 weeks · from €2,000")}</p>
+            <p className="text-xs/4 text-gray-500 mt-1">
+              {t(
+                "* A minimum viable product (MVP) is a version of a product with just enough features to be usable by early customers who can then provide feedback for future product development.",
+              )}
+            </p>
           </div>
         </div>
       </section>
@@ -294,6 +304,11 @@ export default function Index() {
           <li>{t("admin panels for managing operations")}</li>
           <li>{t("customer portals for services")}</li>
           <li>{t("MVPs for startups")}</li>
+          <p className="text-xs/4 text-gray-500 mt-1">
+            {t(
+              "* A minimum viable product (MVP) is a version of a product with just enough features to be usable by early customers who can then provide feedback for future product development.",
+            )}
+          </p>
         </ul>
       </section>
 
