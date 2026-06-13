@@ -36,7 +36,7 @@ export default function Header() {
       <div className="max-w-7xl w-full h-full flex sm:items-center items-start justify-between flex-col sm:flex-row">
         <Link
           to={`/${i18n.language}`}
-          className="font-mono font-medium md:h-auto h-11 flex items-center w-full "
+          className="font-mono font-medium md:h-auto h-11 flex items-center"
         >
           i.fomin.dev
         </Link>
