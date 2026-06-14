@@ -53,6 +53,7 @@ export default function ContextProvider({
           leases = [...data.leases, lease];
         }
         leases[leasePrevIndex] = lease;
+        console.log("new leases", leases);
         setData({
           ...data,
           leases: leases,

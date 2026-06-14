@@ -13,12 +13,12 @@ export default function RecentLeases() {
     });
     return fmt.formatRange(startDate, endDate);
   };
-  const [blur, setBlur] = useState({ left: false, right: true });
+  const [blur, setBlur] = useState({ left: false, right: false });
   useEffect(() => {
     const containerTable = document.getElementById("container-table-leases");
     const table = document.getElementById("table-leases");
     if (!containerTable || !table) return;
-    let blur_ = { left: false, right: true };
+    let blur_ = { left: false, right: false };
     containerTable.addEventListener("scroll", () => {
       if (containerTable.scrollLeft > 4) {
         blur_.left = true;
