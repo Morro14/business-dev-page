@@ -19,6 +19,7 @@ export default function RecentLeases() {
     const table = document.getElementById("table-leases");
     if (!containerTable || !table) return;
     let blur_ = { left: false, right: false };
+
     containerTable.addEventListener("scroll", () => {
       if (containerTable.scrollLeft > 4) {
         blur_.left = true;
