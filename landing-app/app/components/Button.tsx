@@ -4,10 +4,10 @@ import { Link } from "react-router";
 export default function Button() {
   const { t, i18n } = useTranslation();
   return (
-    <div className="relative px-1 w-fit">
+    <div className="relative w-fit">
       <Link
         to={`/${i18n.language}/contact`}
-        className="relative z-40 underline text-xl bg-accent text-black px-1 font-medium"
+        className="relative -left-1 ml-1 underline text-xl bg-accent text-black font-medium"
       >
         {t("Get a free consultation")}
       </Link>

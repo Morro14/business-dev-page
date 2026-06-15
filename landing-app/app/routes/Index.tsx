@@ -221,22 +221,22 @@ export default function Index() {
         <div className="space-y-6">
           <div className="">
             <h3 className="font-medium">{t("Operations Dashboard")}</h3>
-            <p className="text-text-lighter">{t("2–4 weeks · from €1,500")}</p>
+            {/* <p className="text-text-lighter">{t("2–4 weeks · from €1,500")}</p> */}
           </div>
 
           <div className="">
             <h3 className="font-medium">{t("Workflow Automation System")}</h3>
-            <p className="text-text-lighter">{t("4–12 weeks · from €3,000")}</p>
+            {/* <p className="text-text-lighter">{t("4–12 weeks · from €3,000")}</p> */}
           </div>
 
           <div className="">
             <h3 className="font-medium">{t("Client Portal")}</h3>
-            <p className="text-text-lighter">{t("3–6 weeks · from €2,000")}</p>
+            {/* <p className="text-text-lighter">{t("3–6 weeks · from €2,000")}</p> */}
           </div>
 
           <div className="">
             <h3 className="font-medium">{t("MVP Development")}</h3>
-            <p className="text-text-lighter">{t("3–6 weeks · from €2,000")}</p>
+            {/* <p className="text-text-lighter">{t("3–6 weeks · from €2,000")}</p> */}
             <p className="text-xs/4 text-gray-500 mt-1">
               {t(
                 "* A minimum viable product (MVP) is a version of a product with just enough features to be usable by early customers who can then provide feedback for future product development.",
