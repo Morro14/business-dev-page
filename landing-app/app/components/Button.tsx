@@ -7,7 +7,7 @@ export default function Button() {
     <div className="relative w-fit">
       <Link
         to={`/${i18n.language}/contact`}
-        className="relative -left-1 ml-1 underline text-xl bg-accent text-black font-medium"
+        className="relative underline px-2 -left-1 text-xl bg-accent text-black font-medium"
       >
         {t("Get a free consultation")}
       </Link>

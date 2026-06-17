@@ -69,9 +69,7 @@ export default function Index() {
       {/* PROBLEM */}
       <section className="space-y-8">
         <h2 className="text-2xl font-semibold mb-6">
-          {t(
-            "Why do you want to consider having a custom application for your business?",
-          )}
+          {t("Why do you want to consider having a custom application?")}
         </h2>
 
         <p className="text-text-lighter">
@@ -87,7 +85,7 @@ export default function Index() {
           </h4>
           <p className="text-text-lighter">
             {t(
-              "Let’s say you have to manage data that has defined properties, e.g. product or scheduled maintenance. While you can make records, sort and perform various operations in spreadsheets, using proper software (relational databases) allows you to do the following:",
+              "Let’s say you have to manage data that has defined properties, e.g. product or scheduled maintenance. While you can make records, sort and perform other operations in spreadsheets, using proper software (relational databases) allows you to do the following:",
             )}
           </p>
           <ul className="pl-5 list-disc space-y-1 text-text-lighter">
@@ -107,7 +105,7 @@ export default function Index() {
           <h4 className="text-lg font-medium">{t("2. Repetitive tasks.")}</h4>
           <p className="text-text-lighter">
             {t(
-              "In case your business relies on repetitive tasks, such as sending email notifications, regularly adding or changing existing data or gathering data for analytics, automation of those processes undoubtedly will make those operations much faster, easier and instantly reactive to the related event. For that purposes, the following functionality can be used:",
+              "In case your business relies on repetitive tasks, such as sending email notifications, regularly adding or changing existing data or gathering data for analytics, the following functionality can be used:",
             )}
           </p>
           <ul className="pl-5 list-disc space-y-1 text-text-lighter">
