@@ -31,6 +31,7 @@ export default function Header() {
     }
     layout.classList.toggle("dark", theme === "dark");
   }, [theme]);
+  console.log("theme", theme);
   return (
     <div className="flex justify-center w-full sm:h-11 h-13 text-text-main text-base px-3 sm:py-0 py-2">
       <div className="max-w-7xl w-full h-full flex sm:items-center items-start justify-between flex-col sm:flex-row">
@@ -69,8 +70,12 @@ export default function Header() {
             }}
           >
             <img
-              src={`${MEDIA_BASE_URL}/${themeSwitchTo}-theme-icon.webp`}
-              className="sm:size-5 size-4 opacity-80"
+              src={`${MEDIA_BASE_URL}/light-theme-icon.webp`}
+              className={`sm:size-5 size-4 opacity-80 ${theme === "dark" ? "block" : "hidden"}`}
+            />
+            <img
+              src={`${MEDIA_BASE_URL}/dark-theme-icon.webp`}
+              className={`sm:size-5 size-4 opacity-80 ${theme !== "dark" ? "block" : "hidden"}`}
             />
           </button>
         </div>
