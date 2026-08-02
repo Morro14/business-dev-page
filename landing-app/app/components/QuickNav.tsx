@@ -12,10 +12,11 @@ export default function QuickNav({ links }: { links: Link[] }) {
     <div>
       <p className="text-base text-text-lighter">{t("back to")}:</p>
       <div className="flex flex-col items-start">
-        {links.map((link) => (
+        {links.map((link, i) => (
           <Link
             to={`/${i18n.language}/${link.path}`}
             className="text-xl underline hover:opacity-80"
+            key={`quick-navlink-${i}`}
           >
             {link.label}
           </Link>

@@ -31,7 +31,6 @@ export default function Header() {
     }
     layout.classList.toggle("dark", theme === "dark");
   }, [theme]);
-  console.log("theme", theme);
   return (
     <div className="flex justify-center w-full sm:h-11 h-13 text-text-main text-base px-3 sm:py-0 py-2">
       <div className="max-w-7xl w-full h-full flex sm:items-center items-start justify-between flex-col sm:flex-row">

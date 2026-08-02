@@ -23,17 +23,13 @@ export default function Search() {
     const formData = new FormData(formRef.current);
     const formDataObj = Object.fromEntries(formData) as unknown as Filters;
     filterContext?.setFilters(formDataObj);
-    console.dir(formDataObj);
   };
   const handleFieldReset = (elementId: string) => {
-    console.log("resetting filters");
     const inputEl = document.getElementById(elementId) as HTMLInputElement;
     const formEl = formRef.current as HTMLFormElement;
     inputEl.value = "";
-    console.log("defaultValue", inputEl.defaultValue);
     const formData = new FormData(formEl);
     const formDataObj = Object.fromEntries(formData) as unknown as Filters;
-    console.log(formDataObj);
     filterContext?.setFilters(formDataObj);
   };
   const formRef = useRef<HTMLFormElement | null>(null);
