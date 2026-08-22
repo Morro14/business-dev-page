@@ -3,6 +3,7 @@ import QuickNav from "~/components/QuickNav";
 import { Link } from "react-router";
 
 const MEDIA_BASE_URL = import.meta.env.VITE_MEDIA_BASE_URL;
+const GH_DEMO_URL = "https://gh-demo-tr9j.onrender.com/";
 export default function Examples() {
   const { t, i18n } = useTranslation();
   return (
@@ -54,10 +55,7 @@ export default function Examples() {
               {/*   <p>{t("Admin panel")}</p> */}
               {/*   <div className="md:w-150 md:h-84 bg-gray-100"></div> */}
               {/* </div> */}
-              <a
-                className="mt-2 text-lg underline"
-                href={`https://shushan-gh.onrender.com/en`}
-              >
+              <a className="mt-2 text-lg underline" href={GH_DEMO_URL}>
                 {t("Open example")}
               </a>
             </div>
