@@ -20,8 +20,6 @@ export default function Language() {
   const pathname = loc.pathname;
   const searchParams = loc.search;
   const lang = getLanguagePathParam(pathname);
-  const isFileUrl = lang.includes(".")
-  console.log(lang)
 
   if (!lang && detectedLang && LANGUAGES.includes(detectedLang)) {
     const cleanPathname = pathname.replace("/", "");
