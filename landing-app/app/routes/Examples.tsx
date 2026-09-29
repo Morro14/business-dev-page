@@ -3,6 +3,7 @@ import QuickNav from "~/components/QuickNav";
 
 const MEDIA_BASE_URL = import.meta.env.VITE_MEDIA_BASE_URL;
 const GH_DEMO_URL = "https://gh-demo-tr9j.onrender.com/";
+const MARKETPLACE = "https://marketplace-dh9q.onrender.com";
 export default function Examples() {
   const { t } = useTranslation();
   return (
@@ -22,12 +23,14 @@ export default function Examples() {
             <h2 className="mb-6">{t("1. Online shop for farm products")}</h2>
             <div className="space-y-4">
               <p className="text-text-lighter">
-                {t(
-                  "A prototype for an online commercial web app.",
-                )}
+                {t("A prototype for an online commercial web app.")}
               </p>
               <ul className="list-disc pl-6 space-y-1">
-                <li>{t("build with modern tools like next.js framework and drizzle ORM with possibilty of scaling the app")}</li>
+                <li>
+                  {t(
+                    "build with modern tools like next.js framework and drizzle ORM with possibilty of scaling the app",
+                  )}
+                </li>
                 <li>
                   {t(
                     "functionality allowing user to browse, filter, sort proudcts, add items to basket, managing items and more",
@@ -38,12 +41,10 @@ export default function Examples() {
                     "optimistic UI when updating item count (updates instantly on user's side)",
                   )}
                 </li>
-
               </ul>
             </div>
             <div className="space-y-4">
               <div className="text-sm italic text-text-lighter">
-                <p>{t("Client-side app")}</p>
                 <img
                   className="md:w-150 md:h-84 border border-text-lighter object-cover"
                   src={`${MEDIA_BASE_URL}/media/marketplace-screenshot.webp`}
@@ -53,8 +54,8 @@ export default function Examples() {
               {/*   <p>{t("Admin panel")}</p> */}
               {/*   <div className="md:w-150 md:h-84 bg-gray-100"></div> */}
               {/* </div> */}
-              <a className="mt-2 text-lg underline" href={GH_DEMO_URL}>
-                {t("Open example")}
+              <a className="mt-2 text-lg underline" href={MARKETPLACE}>
+                {t("Open the demo website")}
               </a>
             </div>
           </section>
@@ -96,7 +97,7 @@ export default function Examples() {
               {/*   <div className="md:w-150 md:h-84 bg-gray-100"></div> */}
               {/* </div> */}
               <a className="mt-2 text-lg underline" href={GH_DEMO_URL}>
-                {t("Open example")}
+                {t("Open the demo website")}
               </a>
             </div>
           </section>
