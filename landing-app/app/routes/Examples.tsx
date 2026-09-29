@@ -1,11 +1,10 @@
 import { useTranslation } from "react-i18next";
 import QuickNav from "~/components/QuickNav";
-import { Link } from "react-router";
 
 const MEDIA_BASE_URL = import.meta.env.VITE_MEDIA_BASE_URL;
 const GH_DEMO_URL = "https://gh-demo-tr9j.onrender.com/";
 export default function Examples() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   return (
     <div className="space-y-16">
       <QuickNav
@@ -17,7 +16,48 @@ export default function Examples() {
       <div className="space-y-10">
         <h1>{t("Examples")}</h1>
 
+        {/* MARKETPLACE */}
         <div className="space-y-16">
+          <section className="space-y-6">
+            <h2 className="mb-6">{t("1. Online shop for farm products")}</h2>
+            <div className="space-y-4">
+              <p className="text-text-lighter">
+                {t(
+                  "A prototype for an online commercial web app.",
+                )}
+              </p>
+              <ul className="list-disc pl-6 space-y-1">
+                <li>{t("build with modern tools like next.js framework and drizzle ORM with possibilty of scaling the app")}</li>
+                <li>
+                  {t(
+                    "functionality allowing user to browse, filter, sort proudcts, add items to basket, managing items and more",
+                  )}
+                </li>
+                <li>
+                  {t(
+                    "optimistic UI when updating item count (updates instantly on user's side)",
+                  )}
+                </li>
+
+              </ul>
+            </div>
+            <div className="space-y-4">
+              <div className="text-sm italic text-text-lighter">
+                <p>{t("Client-side app")}</p>
+                <img
+                  className="md:w-150 md:h-84 border border-text-lighter object-cover"
+                  src={`${MEDIA_BASE_URL}/media/marketplace-screenshot.webp`}
+                ></img>
+              </div>
+              {/* <div className="text-sm italic text-text-lighter"> */}
+              {/*   <p>{t("Admin panel")}</p> */}
+              {/*   <div className="md:w-150 md:h-84 bg-gray-100"></div> */}
+              {/* </div> */}
+              <a className="mt-2 text-lg underline" href={GH_DEMO_URL}>
+                {t("Open example")}
+              </a>
+            </div>
+          </section>
           {/* GUESTHOUSE */}
           <section className="space-y-6">
             <h2 className="mb-6">{t("1. Guest-house web application")}</h2>
@@ -48,7 +88,7 @@ export default function Examples() {
                 <p>{t("Client-side app")}</p>
                 <img
                   className="md:w-150 md:h-84 border border-text-lighter object-cover"
-                  src={`${MEDIA_BASE_URL}/gh-scrnshot.webp`}
+                  src={`${MEDIA_BASE_URL}/media/gh-scrnshot.webp`}
                 ></img>
               </div>
               {/* <div className="text-sm italic text-text-lighter"> */}
@@ -62,44 +102,44 @@ export default function Examples() {
           </section>
 
           {/* LEASE APP */}
-          <section className="space-y-6">
-            <h2 className="mb-6">{t("2. Equipment lease app")}</h2>
-            <div className="space-y-4">
-              <p className="text-text-lighter">
-                {t(
-                  "A mock example of a dashboard for tracking equipment for leasing.",
-                )}
-              </p>
-              <ul className="list-disc pl-6 space-y-1">
-                <li>
-                  {t("overview of equipment statistics and revenue display")}
-                </li>
-                <li>{t("filter equipment by multiple parameters")}</li>
-                <li>{t("create a lease for selected equipment")}</li>
-
-                <li>{t("list of recent leases")}</li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <div className="space-y-1">
-                <p className="text-sm pt-2 italic text-text-lighter">
-                  {t("Dashboard")}
-                </p>
-                <Link to={`/${i18n.language}/demo/lease-app`}>
-                  <img
-                    className="md:w-150 md:h-84 object-cover border border-text-lighter"
-                    src={`${MEDIA_BASE_URL}/demo-lease-app-scrnshot.webp`}
-                  ></img>
-                </Link>
-              </div>
-              <Link
-                className="mt-2 text-lg underline"
-                to={`/${i18n.language}/demo/lease-app`}
-              >
-                {t("Open example")}
-              </Link>
-            </div>
-          </section>
+          {/* <section className="space-y-6"> */}
+          {/*   <h2 className="mb-6">{t("2. Equipment lease app")}</h2> */}
+          {/*   <div className="space-y-4"> */}
+          {/*     <p className="text-text-lighter"> */}
+          {/*       {t( */}
+          {/*         "A mock example of a dashboard for tracking equipment for leasing.", */}
+          {/*       )} */}
+          {/*     </p> */}
+          {/*     <ul className="list-disc pl-6 space-y-1"> */}
+          {/*       <li> */}
+          {/*         {t("overview of equipment statistics and revenue display")} */}
+          {/*       </li> */}
+          {/*       <li>{t("filter equipment by multiple parameters")}</li> */}
+          {/*       <li>{t("create a lease for selected equipment")}</li> */}
+          {/**/}
+          {/*       <li>{t("list of recent leases")}</li> */}
+          {/*     </ul> */}
+          {/*   </div> */}
+          {/*   <div className="space-y-4"> */}
+          {/*     <div className="space-y-1"> */}
+          {/*       <p className="text-sm pt-2 italic text-text-lighter"> */}
+          {/*         {t("Dashboard")} */}
+          {/*       </p> */}
+          {/*       <Link to={`/${i18n.language}/demo/lease-app`}> */}
+          {/*         <img */}
+          {/*           className="md:w-150 md:h-84 object-cover border border-text-lighter" */}
+          {/*           src={`${MEDIA_BASE_URL}/demo-lease-app-scrnshot.webp`} */}
+          {/*         ></img> */}
+          {/*       </Link> */}
+          {/*     </div> */}
+          {/*     <Link */}
+          {/*       className="mt-2 text-lg underline" */}
+          {/*       to={`/${i18n.language}/demo/lease-app`} */}
+          {/*     > */}
+          {/*       {t("Open example")} */}
+          {/*     </Link> */}
+          {/*   </div> */}
+          {/* </section> */}
         </div>
       </div>
     </div>
